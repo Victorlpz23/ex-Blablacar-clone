@@ -1,10 +1,13 @@
 // .env file
-require('dotenv').config()
+require('dotenv').config();
 
-// Require express
+// Requiring express & app constant creation based on express framework
 const express = require('express');
 const app = express();
 
+// Require hbs to views folder
+app.set('view engine', 'hbs');
+app.set('views', `${__dirname}/views`);
 
 
 
