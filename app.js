@@ -5,9 +5,15 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-// Require hbs to views folder
+// Requiring hbs config
+require('./configs/hbs.config')
+
+//  Configure hbs as view engine
 app.set('view engine', 'hbs');
 app.set('views', `${__dirname}/views`);
+
+// Static files set up
+app.use(express.static(`${__dirname}/public`));
 
 
 
