@@ -1,0 +1,25 @@
+{
+  "name": "ex-blablacar-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Victorlpz23/ex-Blablacar-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Victorlpz23/ex-Blablacar-clone/issues"
+  },
+  "homepage": "https://github.com/Victorlpz23/ex-Blablacar-clone#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "morgan": "^1.10.0"
+  }
+}
