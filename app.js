@@ -1,12 +1,15 @@
 // .env file
 require('dotenv').config();
 
+// Requiring mongo to connect de database
+require('./configs/db.config');
+
 // Requiring express & app constant creation based on express framework
 const express = require('express');
 const app = express();
 
 // Requiring hbs config
-require('./configs/hbs.config')
+require('./configs/hbs.config');
 
 //  Configure hbs as view engine
 app.set('view engine', 'hbs');
@@ -19,7 +22,7 @@ app.use(express.static(`${__dirname}/public`));
 
 // Lines for be able to use routes file to every http request
 const routes = require('./configs/routes.config');
-app.use(routes)
+app.use(routes);
 
 
 
