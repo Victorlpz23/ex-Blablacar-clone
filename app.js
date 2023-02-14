@@ -11,7 +11,9 @@ app.set('views', `${__dirname}/views`);
 
 
 
-
+// Lines for be able to use routes file to every http request
+const routes = require('./configs/routes.config');
+app.use(routes)
 
 
 
