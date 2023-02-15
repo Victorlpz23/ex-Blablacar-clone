@@ -9,3 +9,11 @@ module.exports.list = (req, res, next) => {
   })
   .catch(next)
 }
+
+module.exports.detail = (req, res, next) => {
+  Trip.findById(req.params.id)
+  .then((trip) => {
+    res.render('trips/detail', { trip })
+  })
+  .catch(next)
+}
