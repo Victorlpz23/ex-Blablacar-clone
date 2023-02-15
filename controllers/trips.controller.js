@@ -17,3 +17,15 @@ module.exports.detail = (req, res, next) => {
   })
   .catch(next)
 }
+
+module.exports.create = (req, res, next) => {
+    res.render('trips/new')
+}
+
+module.exports.doCreate = (req, res, next) => {
+  Trip.create(req.body) 
+    .then(() => {
+      res.redirect('/trips')
+    })
+    .catch(next)
+}

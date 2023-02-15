@@ -10,7 +10,9 @@ const tripsController= require('../controllers/trips.controller')
 router.get('/', commonsController.home);
 
 router.get('/trips', tripsController.list);
-router.get('/trips/:id', tripsController.detail)
+router.get('/trips/new', tripsController.create);
+router.post('/trips/new', tripsController.doCreate);
+router.get('/trips/:id', tripsController.detail);
 
 
 
