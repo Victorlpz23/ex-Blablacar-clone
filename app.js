@@ -8,10 +8,19 @@ require('./configs/db.config');
 const express = require('express');
 const app = express();
 
+// Requiring Morgan 
+const logger = require('morgan');
+
+// Using this method to be able to save inputs in req.body
+app.use(express.urlencoded());
+
+// Using Morgan to show al the http request in terminal
+app.use(logger('dev'));
+
 // Requiring hbs config
 require('./configs/hbs.config');
 
-//  Configure hbs as view engine
+// Configure hbs as view engine
 app.set('view engine', 'hbs');
 app.set('views', `${__dirname}/views`);
 
