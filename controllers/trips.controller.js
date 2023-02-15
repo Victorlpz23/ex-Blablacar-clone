@@ -1,7 +1,11 @@
-
+const Trip = require('../models/trip.model')
 
 // Defining actions for trips
 
 module.exports.list = (req, res, next) => {
-  res.render('trips/list')
+  Trip.find()
+  .then((trips) => {
+    res.render('trips/list', { trips })
+  })
+  .catch(next)
 }

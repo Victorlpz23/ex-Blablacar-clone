@@ -1,1 +1,12 @@
 <h1>List of trips</h1>
+
+{{#each trips as | trip |}}
+<li>{{trip.user}}</li>
+<li>{{trip.from}}</li>
+<li>{{trip.to}}</li>
+<li>{{trip.price}}</li>
+<li>{{trip.seats}}</li>
+<li>{{trip.car}}</li>
+<li>{{trip.comments}}</li>
+<p></p>
+{{/each}}
