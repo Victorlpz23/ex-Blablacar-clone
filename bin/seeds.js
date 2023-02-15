@@ -17,7 +17,6 @@ Trip.deleteMany()
       price: 30,
       date: `Date ${i}`,
       seats: 3,
-      car: `Model ${i}`,
       comments: `Comment ${i}`,
     }).then((trip) => {
       console.log(`trip ${i} created`)

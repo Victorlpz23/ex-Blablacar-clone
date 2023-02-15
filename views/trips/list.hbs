@@ -1,12 +1,17 @@
 <h1>List of trips</h1>
-
-{{#each trips as | trip |}}
-<li>{{trip.user}}</li>
-<li>{{trip.from}}</li>
-<li>{{trip.to}}</li>
-<li>{{trip.price}}</li>
-<li>{{trip.seats}}</li>
-<li>{{trip.car}}</li>
-<li>{{trip.comments}}</li>
-<p></p>
-{{/each}}
+<div class="d-flex align-items-center flex-column">
+  {{#each trips as |trip|}}
+    <a
+      class="card mb-2 border-1 rounded-4 shadow nav-link"
+      style="width: 90%;"
+      href="/trips/link"
+    >
+      <div class="card-body">
+        <li>{{trip.from}}</li>
+        <li>{{trip.to}}</li>
+        <li>Price: {{trip.price}}€</li>
+        <li>{{trip.user}}</li>
+      </div>
+    </a>
+  {{/each}}
+</div>

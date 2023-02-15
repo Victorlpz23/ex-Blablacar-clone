@@ -27,10 +27,6 @@ const tripSchema = new Schema ({
     type: Number,
     required: true
   },
-  car: {
-    type: String,
-    required: true
-  },
   comments: {
     type: String,
   }
