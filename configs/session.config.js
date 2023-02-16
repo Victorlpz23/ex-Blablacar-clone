@@ -24,4 +24,19 @@ module.exports.session = session ({
   })
 });
 
+module.exports.loadSessionUser = (req, res, next) => {
+  const {userId} = req.session
+  if(userId) {
+    User.findById(userId)
+      .then((user) => {
+        req.user = user
+        res.locals.currentUser = user
+        next()
+      })
+      .catch(next)
+  } else {
+    next()
+  }
+}
+
 
