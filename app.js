@@ -12,7 +12,7 @@ const app = express();
 const logger = require('morgan');
 
 // Requiring express-session 
-const { session } = require('./configs/session.config');
+const { session, loadSessionUser } = require('./configs/session.config');
 
 // Using this method to be able to save inputs in req.body
 app.use(express.urlencoded());
@@ -21,7 +21,8 @@ app.use(express.urlencoded());
 app.use(logger('dev'));
 
 // Using express-session to create a cookie session 
-app.use(session)
+app.use(session);
+app.use(loadSessionUser);
 
 // Requiring hbs config
 require('./configs/hbs.config');

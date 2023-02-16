@@ -1,16 +1,26 @@
 <ul class="nav nav-pills d-flex justify-content-between fixed mb-1 mt-2">
   </li>
-  <li class="nav-item dropdown">
+  <li class="nav-item dropdown" >
     <a
-      class="nav-link dropdown-toggle"
+      class="nav-link dropdown-toggle" 
       data-bs-toggle="dropdown"
       href="#"
       role="button"
       aria-expanded="false"
     ><img class="rounded-circle" src="https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg" alt="user" width="24px" height="24px"></a>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="/login">Iniciar Sesión</a></li>
-      <li><a class="dropdown-item" href="/users/new">Registrarse</a></li>
+      {{#if currentUser.user}}
+      <li><a class="dropdown-item" href="/trips/new">Offer a ride</a></li>
+      <li><a class="dropdown-item" href="/profile/rides">Your rides</a></li>
+      <li><a class="dropdown-item" href="/profile/messages">Inbox</a></li>
+      <li><a class="dropdown-item" href="/profile">Profile</a></li>
+      <li><a class="dropdown-item" href="/profile/transfers">Transfers</a></li>
+      <li><a class="dropdown-item" href="/profile/payments">Payments & refunds</a></li>
+      <li><a class="dropdown-item" href="/">Log out</a></li>
+      {{else}}
+      <li><a class="dropdown-item" href="/login">Log In</a></li>
+      <li><a class="dropdown-item" href="/users/new">Sign up</a></li>
+      {{/if}}
     </ul>
   </li>
   <li class="nav-item">
@@ -26,6 +36,7 @@
       d="M678.96 619.8c-16-94.4-69.7-173-143-223l-4 21c-27.4 160-26 332 58.6 453 5 7.2 10.2 14 15.7 20.8 60.3-73.2 89.8-171 72.7-271.8z"
     ></path></svg>
     </a>
+    <h1> Welcome {{currentUser.user}}</h1>
   <div>
   <li class="nav-item d-flex justify-content-end ml-2">
     <a class="nav-link  mr-3" href="/trips">
