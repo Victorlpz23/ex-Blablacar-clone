@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 // Creating a user schema
 const userSchema = new Schema ({
-  name: {
+  user: {
     type: String,
     required: true
   },

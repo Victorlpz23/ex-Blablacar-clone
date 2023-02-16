@@ -6,7 +6,7 @@ const User = require('../models/user.model');
 
 // Create a user
 module.exports.create = (req, res, next) => {
-  res.render('/login')
+  res.render('users/new')
 }
 
 // Create a user and get the info
