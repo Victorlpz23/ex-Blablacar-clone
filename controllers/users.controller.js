@@ -34,6 +34,7 @@ module.exports.doLogin = (req, res, next) => {
     bcrypt
     .compare(req.body.password, user.password)
       .then((ok) => {
+        req.session.userId = user.id
         res.redirect('/trips')
       })
       .catch(next)

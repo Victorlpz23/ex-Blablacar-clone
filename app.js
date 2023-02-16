@@ -11,11 +11,17 @@ const app = express();
 // Requiring Morgan 
 const logger = require('morgan');
 
+// Requiring express-session 
+const { session } = require('./configs/session.config');
+
 // Using this method to be able to save inputs in req.body
 app.use(express.urlencoded());
 
 // Using Morgan to show al the http request in terminal
 app.use(logger('dev'));
+
+// Using express-session to create a cookie session 
+app.use(session)
 
 // Requiring hbs config
 require('./configs/hbs.config');
