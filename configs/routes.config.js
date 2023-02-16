@@ -4,15 +4,21 @@ const router = express.Router();
 
 // You will need a constant for use actions defined inside the controller files
 const commonsController = require('../controllers/commons.controller');
-const tripsController= require('../controllers/trips.controller')
+const tripsController = require('../controllers/trips.controller');
+const userController = require('../controllers/users.controller');
 
 // Defining the actions for paht request
 router.get('/', commonsController.home);
 
+// Trips routes
 router.get('/trips', tripsController.list);
 router.get('/trips/new', tripsController.create);
 router.post('/trips/new', tripsController.doCreate);
 router.get('/trips/:id', tripsController.detail);
+
+// Users routes
+router.get('/users/new', userController.create);
+router.post('/users/new', userController.doCreate);
 
 
 
