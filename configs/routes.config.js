@@ -20,6 +20,10 @@ router.get('/trips/:id', tripsController.detail);
 router.get('/users/new', userController.create);
 router.post('/users/new', userController.doCreate);
 
+// Users login routes
+router.get('/login', userController.login);
+router.post('/login', userController.doLogin);
+
 
 
 
