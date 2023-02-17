@@ -13,13 +13,13 @@ router.get('/', commonsController.home);
 
 // Trips routes
 router.get('/trips', tripsController.list);
-router.get('/trips/new', tripsController.create);
-router.post('/trips/new', tripsController.doCreate);
+router.get('/trips/new', secure.isAuthenticated, tripsController.create);
+router.post('/trips/new', secure.isAuthenticated, tripsController.doCreate);
 router.get('/trips/:id', tripsController.detail);
 
 // Users routes
-router.get('/users/new', secure.isAuthenticated, userController.create);
-router.post('/users/new', secure.isAuthenticated, userController.doCreate);
+router.get('/users/new', userController.create);
+router.post('/users/new', userController.doCreate);
 
 // Users login routes
 router.get('/login', userController.login);

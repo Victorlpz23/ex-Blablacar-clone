@@ -6,6 +6,7 @@ const Trip = require('../models/trip.model')
 // List of trips
 module.exports.list = (req, res, next) => {
   Trip.find()
+  .populate('user')
   .then((trips) => {
     res.render('trips/list', { trips })
   })
@@ -28,6 +29,7 @@ module.exports.create = (req, res, next) => {
 
 // Create a trip and get the info
 module.exports.doCreate = (req, res, next) => {
+  req.body.user = req.user.id
   Trip.create(req.body) 
     .then(() => {
       res.redirect('/trips')

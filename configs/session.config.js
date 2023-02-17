@@ -10,6 +10,7 @@ const User = require('../models/user.model');
 // Create a constant to connect to mongo to the database
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/blablacar';
 
+// Creating a user session cookie
 module.exports.session = session ({
   secret: process.env.SESSION_SECRET || 'super secret',
   resave: false,
@@ -24,6 +25,8 @@ module.exports.session = session ({
   })
 });
 
+
+// This middleware asign the cookie Id to an user Id, and gets all the user info
 module.exports.loadSessionUser = (req, res, next) => {
   const {userId} = req.session
   if(userId) {
