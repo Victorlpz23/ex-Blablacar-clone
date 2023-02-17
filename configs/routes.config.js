@@ -6,6 +6,7 @@ const router = express.Router();
 const commonsController = require('../controllers/commons.controller');
 const tripsController = require('../controllers/trips.controller');
 const userController = require('../controllers/users.controller');
+const secure = require('../middlewares/secure.mid');
 
 // Defining the actions for paht request
 router.get('/', commonsController.home);
@@ -17,8 +18,8 @@ router.post('/trips/new', tripsController.doCreate);
 router.get('/trips/:id', tripsController.detail);
 
 // Users routes
-router.get('/users/new', userController.create);
-router.post('/users/new', userController.doCreate);
+router.get('/users/new', secure.isAuthenticated, userController.create);
+router.post('/users/new', secure.isAuthenticated, userController.doCreate);
 
 // Users login routes
 router.get('/login', userController.login);

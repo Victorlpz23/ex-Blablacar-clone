@@ -7,7 +7,8 @@ const Schema = mongoose.Schema;
 // Creating a trip schema
 const tripSchema = new Schema ({
   user: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
     required: true
   },
   from: {
