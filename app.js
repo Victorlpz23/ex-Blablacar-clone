@@ -43,11 +43,9 @@ const routes = require('./configs/routes.config');
 app.use(routes);
 
 
-// Using errors middleware for erros page 
+// Using errors middleware for errors page 
 app.use(notFound);
 app.use(statusError);
-
-
 
 
 

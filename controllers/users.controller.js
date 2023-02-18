@@ -42,6 +42,7 @@ module.exports.doLogin = (req, res, next) => {
   .catch(next)
 };
 
+// List of users
 module.exports.list = (req, res, next) => {
   User.find()
   .then((users) => {
