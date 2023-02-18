@@ -14,6 +14,9 @@ const logger = require('morgan');
 // Requiring express-session 
 const { session, loadSessionUser } = require('./configs/session.config');
 
+// Requiring errors middleware 
+const { notFound, statusError } = require('./middlewares/errors.mid');
+
 // Using this method to be able to save inputs in req.body
 app.use(express.urlencoded());
 
@@ -35,13 +38,14 @@ app.set('views', `${__dirname}/views`);
 app.use(express.static(`${__dirname}/public`));
 
 
-
 // Lines for be able to use routes file to every http request
 const routes = require('./configs/routes.config');
 app.use(routes);
 
 
-
+// Using errors middleware for erros page 
+app.use(notFound);
+app.use(statusError);
 
 
 
