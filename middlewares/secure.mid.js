@@ -7,3 +7,14 @@ module.exports.isAuthenticated = (req, res, next) => {
     res.redirect('/login')
   }
 }
+
+// Middleware to know the role of the user
+module.exports.checkRole = (role) => {
+  return (req, res, next) => {
+    if(req.user?.role === 'admin') {
+      next()
+    } else {
+      res.redirect('/login')
+    }
+  }
+}
