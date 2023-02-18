@@ -20,6 +20,7 @@ router.get('/trips/:id', tripsController.detail);
 // Users routes
 router.get('/users/new', userController.create);
 router.post('/users/new', userController.doCreate);
+router.get('/users', secure.isAuthenticated, secure.checkRole('admin'), userController.list);
 
 // Users login routes
 router.get('/login', userController.login);

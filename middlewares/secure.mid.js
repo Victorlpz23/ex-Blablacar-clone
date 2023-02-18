@@ -11,10 +11,11 @@ module.exports.isAuthenticated = (req, res, next) => {
 // Middleware to know the role of the user
 module.exports.checkRole = (role) => {
   return (req, res, next) => {
-    if(req.user?.role === 'admin') {
+    if(req.user?.role === role) {
       next()
     } else {
-      res.redirect('/login')
+      res.redirect('/')
     }
   }
 }
+

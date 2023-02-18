@@ -42,5 +42,13 @@ module.exports.doLogin = (req, res, next) => {
   .catch(next)
 };
 
+module.exports.list = (req, res, next) => {
+  User.find()
+  .then((users) => {
+    res.render('users/list', { users })
+  })
+  .catch(next)
+ }
+
 
 
