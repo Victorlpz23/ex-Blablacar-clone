@@ -1,3 +1,9 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.home h1 {
+ color: white;
+ font-weight: 700;
+ text-align: center;
+}
