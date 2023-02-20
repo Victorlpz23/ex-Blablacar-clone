@@ -62,6 +62,9 @@ module.exports.update = (req, res, next) => {
 };
 
 module.exports.doUpdate = (req, res, next) => {
+  if (req.file) {
+    req.body.image = req.file.path
+  }
   User.findByIdAndUpdate(req.params.id, req.body)
   .then(() => {
     res.redirect('/profile')
