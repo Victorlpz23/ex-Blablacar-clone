@@ -1,6 +1,6 @@
 <h1>Edit User</h1>
 
-<form action="/profile/{{currentUser.id}}" method="POST">
+<form action="/profile/{{currentUser.id}}" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="user" class="form-label">User</label>
       <input type="text" value="{{currentUser.user}}" name="user" id="user" class="form-control" placeholder="User">
@@ -15,7 +15,11 @@
     </div>
     <div class="mb-3">
       <label for="birthdate" class="form-label">Birthdate</label>
-      <input type="date" value="{{currentUser.birthdate}}" name="birthdate" id="birthdate" class="form-control">
+      <input type="date" name="birthdate" id="birthdate" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Profile Image</label>
+      <input type="file" name="image" id="image" class="form-control">
     </div>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>

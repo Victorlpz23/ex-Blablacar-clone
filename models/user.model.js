@@ -41,6 +41,9 @@ const userSchema = new Schema ({
     required: true,
     minLength: 8
   },
+  image: {
+    type: String,
+  },
   role: {
     type: String,
     enum: ["admin", "guest"],
