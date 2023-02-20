@@ -55,3 +55,16 @@ module.exports.list = (req, res, next) => {
  module.exports.profile = (req, res, next) => {
   res.render('users/profile')
 };
+
+// User profile edit
+module.exports.update = (req, res, next) => {
+  res.render('users/edit')
+};
+
+module.exports.doUpdate = (req, res, next) => {
+  User.findByIdAndUpdate(req.params.id, req.body)
+  .then(() => {
+    res.redirect('/profile')
+  })
+  .catch(next)
+};

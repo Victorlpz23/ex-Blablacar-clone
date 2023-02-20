@@ -1,0 +1,22 @@
+<h1>Edit User</h1>
+
+<form action="/profile/{{currentUser.id}}" method="POST">
+    <div class="mb-3">
+      <label for="user" class="form-label">User</label>
+      <input type="text" value="{{currentUser.user}}" name="user" id="user" class="form-control" placeholder="User">
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" value="{{currentUser.name}}" name="name" id="name" class="form-control" placeholder="Name">
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" value="{{currentUser.lastName}}" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
+    </div>
+    <div class="mb-3">
+      <label for="birthdate" class="form-label">Birthdate</label>
+      <input type="date" value="{{currentUser.birthdate}}" name="birthdate" id="birthdate" class="form-control">
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
