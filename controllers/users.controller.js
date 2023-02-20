@@ -16,7 +16,7 @@ module.exports.create = (req, res, next) => {
 module.exports.doCreate = (req, res, next) => {
   User.create(req.body)
     .then(() => {
-      res.redirect('/trips')
+      res.redirect('/login')
     })
     .catch(next)
 };
@@ -51,5 +51,7 @@ module.exports.list = (req, res, next) => {
   .catch(next)
  }
 
-
-
+// User profile
+ module.exports.profile = (req, res, next) => {
+  res.render('users/profile')
+};
