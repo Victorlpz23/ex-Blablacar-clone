@@ -61,6 +61,8 @@ module.exports.update = (req, res, next) => {
   res.render('users/edit')
 };
 
+
+// Upload changes for the User edit
 module.exports.doUpdate = (req, res, next) => {
   if (req.file) {
     req.body.image = req.file.path
