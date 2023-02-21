@@ -1,29 +1,36 @@
 <h1>Create a new User</h1>
 
+
+{{#if errors}}
+  <div class="alert alert-danger">
+    review form data
+  </div>
+{{/if}}
+
 <form action="/users/new" method="POST">
     <div class="mb-3">
       <label for="user" class="form-label">User</label>
-      <input type="text" name="user" id="user" class="form-control" placeholder="User">
+      <input type="text"  value="{{user.user}}" name="user" id="user" class="form-control {{#if errors.user}}is-invalid{{/if}}" placeholder="User">
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">name</label>
-      <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+      <input type="text" value="{{user.name}}" name="name" id="name" class="form-control {{#if errors.name}}is-invalid{{/if}}" placeholder="Name">
     </div>
     <div class="mb-3">
       <label for="lastName" class="form-label">Last Name</label>
-      <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
+      <input type="text" value="{{user.lastName}}" name="lastName" id="lastName" class="form-control {{#if errors.lastName}}is-invalid{{/if}}" placeholder="Last Name">
     </div>
     <div class="mb-3">
       <label for="birthdate" class="form-label">Birthdate</label>
-      <input type="date" name="birthdate" id="birthdate" class="form-control" placeholder="Birthdate">
+      <input type="date" value="{{user.birthdate}}" name="birthdate" id="birthdate" class="form-control {{#if errors.birthdate}}is-invalid{{/if}}" placeholder="Birthdate">
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+      <input type="email" value="{{user.email}}" name="email" id="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" placeholder="Email">
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+      <input type="password" name="password" id="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" placeholder="Password">
     </div>
     </div>
     <button type="submit" class="btn btn-primary">Create</button>

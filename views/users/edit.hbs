@@ -19,8 +19,17 @@
     </div>
     <div class="mb-3">
       <label for="image" class="form-label">Profile Image</label>
-      <input type="file" name="image" id="image" class="form-control">
+      <img id="image" class="m-2 rounded-circle" src="{{currentUser.image}}" width="200"/>
+      <input type="file" value="{{currenUser.image}}" name="image" id="image" class="form-control">
     </div>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
+
+
+{{!-- <script>
+  document.getElementById("image-imput").onchange = (event) => {
+    const newImage = event.target.value;
+    const document.getElementById("image").src = newImage;
+  }
+</script> --}}

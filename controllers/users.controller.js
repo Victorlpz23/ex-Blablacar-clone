@@ -2,7 +2,10 @@
 const User = require('../models/user.model');
 
 // Require bcryptjs to encrypt the password
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+
+// Require mongoose to validation errors
+const mongoose = require('mongoose');
 
 
 // Defining actions for users
@@ -18,8 +21,15 @@ module.exports.doCreate = (req, res, next) => {
     .then(() => {
       res.redirect('/login')
     })
-    .catch(next)
-};
+    .catch((error) => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.render("users/new", { errors: error.errors, user: req.body });
+      } else {
+        next(err);
+      }
+    })
+}
+
 
 // Form to complete the user info
 module.exports.login = (req, res, next) => {
