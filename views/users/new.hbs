@@ -11,26 +11,32 @@
     <div class="mb-3">
       <label for="user" class="form-label">User</label>
       <input type="text"  value="{{user.user}}" name="user" id="user" class="form-control {{#if errors.user}}is-invalid{{/if}}" placeholder="User">
+        {{#if errors.user}}<div class="invalid-feedback">{{errors.user}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">name</label>
       <input type="text" value="{{user.name}}" name="name" id="name" class="form-control {{#if errors.name}}is-invalid{{/if}}" placeholder="Name">
+      {{#if errors.name}}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="lastName" class="form-label">Last Name</label>
       <input type="text" value="{{user.lastName}}" name="lastName" id="lastName" class="form-control {{#if errors.lastName}}is-invalid{{/if}}" placeholder="Last Name">
+      {{#if errors.lastName}}<div class="invalid-feedback">{{errors.lastName}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="birthdate" class="form-label">Birthdate</label>
       <input type="date" value="{{user.birthdate}}" name="birthdate" id="birthdate" class="form-control {{#if errors.birthdate}}is-invalid{{/if}}" placeholder="Birthdate">
+      {{#if errors.birthdate}}<div class="invalid-feedback">{{errors.birthdate}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
       <input type="email" value="{{user.email}}" name="email" id="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" placeholder="Email">
+      {{#if errors.email}}<div class="invalid-feedback">{{errors.email}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
       <input type="password" name="password" id="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" placeholder="Password">
+      {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
     </div>
     </div>
     <button type="submit" class="btn btn-primary">Create</button>
