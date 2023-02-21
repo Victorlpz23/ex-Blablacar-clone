@@ -7,7 +7,8 @@
       href="#"
       role="button"
       aria-expanded="false"
-    ><img class="rounded-circle" src="https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg" alt="user" width="24px" height="24px"></a>
+    >
+    <img class="rounded-circle" src="{{#if currentUser.image}} {{currentUser.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="user" width="24px" height="24px"></a>
     <ul class="dropdown-menu">
       {{#if currentUser.user}}
       <li><a class="dropdown-item" href="/trips/new">Offer a ride</a></li>
