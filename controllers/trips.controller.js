@@ -46,11 +46,23 @@ module.exports.update = (req,res,next) => {
 }
 
 module.exports.doUpdate = (req, res, next) => {
-  Trip.findByIdAndUpdate(req.params.id, req.body)
+  Trip.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
   .then((trip) => {
     res.redirect(`/trips/${req.params.id}`)
   })
   .catch(next)
 }
 
-module.exports.delete = (req, res, next) => {}
+module.exports.delete = (req, res, next) => {
+  Trip.findById(req.params.id)
+    .then((trip) => {
+      if(!trip) {
+        res.redirect('/trips')
+      } else if (trip.user == req.user.id) {
+        trip.delete()
+          .then(() => res.redirect('/trips')).catch(next)
+      } else {
+        res.redirect('/trips')
+      }
+  }).catch(next)
+}
