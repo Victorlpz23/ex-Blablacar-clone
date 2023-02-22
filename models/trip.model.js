@@ -22,7 +22,6 @@ const tripSchema = new Schema ({
   price: {
       type: Number,
       required: true
-  
   },
   seats: {
     type: Number,
@@ -30,7 +29,11 @@ const tripSchema = new Schema ({
   },
   comments: {
     type: String,
-  }
+  },
+  date: {
+    type: String,
+    required: true
+  },
 },
   { timestamps: true }
 );
