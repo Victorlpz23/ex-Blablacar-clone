@@ -3,6 +3,10 @@ body {
   margin-top: 40px;
 }
 
+.navbar-custom {
+  height: 52px;
+}
+
 .home p {
   color: rgb(112, 140, 145);
   font-size: 18px;
@@ -18,11 +22,12 @@ body {
 .bridge {
   background-size: cover;
   background-image: url('https://cdn.blablacar.com/kairos/assets/images/carpool_only_small-09eb14eafab9352951e1..svg');
-  height: 400px;
+  height: 447px;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1;
 }
+
 .search {
   background-color: #00AFF5;
   color: white;
@@ -31,6 +36,6 @@ body {
 }
 
 .home {
-  margin-top: -121px;
+  margin-top: -135px;
   z-index: 999;
 }

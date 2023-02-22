@@ -1,4 +1,4 @@
-<div class="nav nav-pills d-flex justify-content-between bg-white fixed-top h-58">
+<div class="navbar-custom nav nav-pills d-flex justify-content-between bg-white fixed-top">
   <li class="nav-item dropdown" >
     <a
       class="nav-link dropdown-toggle" 
@@ -7,8 +7,8 @@
       role="button"
       aria-expanded="false"
     >
-    <img class="rounded-circle" src="{{#if currentUser.image}} {{currentUser.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="user" width="24px" height="24px"></a>
-    <ul class="dropdown-menu">
+    <img class="rounded-circle mt-1" src="{{#if currentUser.image}} {{currentUser.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="user" width="28px" height="28px"></a>
+    <ul class="dropdown-menu mt-1">
       {{#if currentUser.user}}
       <li><a class="dropdown-item" href="/trips/new">Offer a ride</a></li>
       <li><a class="dropdown-item" href="/profile/rides">Your rides</a></li>
@@ -23,7 +23,7 @@
       {{/if}}
     </ul>
   </li>
-  <div class="nav-item">
+  <div class="nav-item mt-1 ">
     <a class="nav-link" href="/">
     <svg viewBox="0 0 1199.96 1014.39" width="33"><path
       fill="#054752"
@@ -37,7 +37,7 @@
     ></path></svg>
     </a>
   </div>
-  <div class="nav-item d-flex justify-content-end ml-2">
+  <div class="nav-item d-flex justify-content-end ml-2 mt-1">
     <a class="nav-link  mr-3" href="/trips">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl eBMhlT" width="24" height="24" aria-hidden="true"><g fill="none" stroke="#00AFF5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="22" y1="22" x2="16.4" y2="16.4"></line><circle cx="10" cy="10" r="9"></circle></g>
       </svg>
