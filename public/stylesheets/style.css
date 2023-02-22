@@ -39,3 +39,23 @@ body {
   margin-top: -135px;
   z-index: 999;
 }
+
+.help {
+  background-color: rgb(0, 175, 245);
+}
+
+.learn {
+  background-color: white;
+  color: #00AFF5;
+  padding: 0 24;
+  padding-top: 10;
+  padding-bottom: 10;
+}
+
+
+.publish {
+  background-color: #00AFF5;
+  padding: 0 24;
+  padding-top: 10;
+  padding-bottom: 10;
+}
