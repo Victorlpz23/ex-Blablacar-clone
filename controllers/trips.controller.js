@@ -37,3 +37,20 @@ module.exports.doCreate = (req, res, next) => {
     })
     .catch(next)
 }
+
+module.exports.update = (req,res,next) => {
+  Trip.findById(req.params.id)
+  .then((trip) => {
+  res.render('trips/edit', { trip })
+  }).catch(next)
+}
+
+module.exports.doUpdate = (req, res, next) => {
+  Trip.findByIdAndUpdate(req.params.id, req.body)
+  .then((trip) => {
+    res.redirect(`/trips/${req.params.id}`)
+  })
+  .catch(next)
+}
+
+module.exports.delete = (req, res, next) => {}
