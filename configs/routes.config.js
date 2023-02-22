@@ -19,7 +19,7 @@ router.post('/trips/new', secure.isAuthenticated, tripsController.doCreate);
 router.get('/trips/:id', tripsController.detail);
 router.get('/trips/:id/edit', secure.isAuthenticated, tripsController.update);
 router.post('/trips/:id', secure.isAuthenticated, tripsController.doUpdate);
-router.post('/trips/:id/delete', tripsController.delete);
+router.post('/trips/:id/delete', secure.isAuthenticated, tripsController.delete);
 
 
 

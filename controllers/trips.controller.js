@@ -55,14 +55,17 @@ module.exports.doUpdate = (req, res, next) => {
 
 module.exports.delete = (req, res, next) => {
   Trip.findById(req.params.id)
-    .then((trip) => {
+    .then(trip => {
       if(!trip) {
         res.redirect('/trips')
       } else if (trip.user == req.user.id) {
         trip.delete()
-          .then(() => res.redirect('/trips')).catch(next)
+          .then(() => res.redirect('/trips'))
+          .catch(next)
       } else {
         res.redirect('/trips')
       }
-  }).catch(next)
+  })
+  .catch(next)
 }
+

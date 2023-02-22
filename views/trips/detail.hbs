@@ -15,9 +15,14 @@
   </ul>
 </div>
 
-{{#isOwnedBy trip currentUser}}
+
+
+
+
 <a class="btn btn-primary" href="{{trip.id}}/edit">Edit</a>
 
+
+{{#isOwnedBy trip currentUser}}
 <form action="/trips/{{trip.id}}/delete" method="post">
 <button class="btn btn-danger" type="submit">Delete</button>
 </form>
