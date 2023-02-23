@@ -1,0 +1,10 @@
+[
+  {
+    "user": "Poxy",
+    "name": "Juan",
+    "lastName": "Perez",
+    "birthdate": "15/08/88",
+    "email": "juan@gmail.com",
+    "password": "12345678"
+  }
+]
