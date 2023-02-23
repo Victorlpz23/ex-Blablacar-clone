@@ -1,6 +1,6 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .navbar-custom {
@@ -70,4 +70,13 @@ body {
 
 .where h1 {
   font-size: large;
+}
+
+
+.login {
+  background-color: #00AFF5;
+  padding: 0 24;
+  padding-top: 10;
+  padding-bottom: 10;
+  margin-left: 120;
 }
