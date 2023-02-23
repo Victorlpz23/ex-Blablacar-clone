@@ -31,7 +31,12 @@ module.exports.loadSessionUser = (req, res, next) => {
   const {userId} = req.session
   if(userId) {
     User.findById(userId)
-      .populate('adquiredTrips')
+      .populate({
+        path: 'adquiredTrips',
+        populate: {
+          path: 'user'
+        }
+      })
       .then((user) => {
         req.user = user
         res.locals.currentUser = user

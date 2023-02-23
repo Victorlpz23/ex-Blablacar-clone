@@ -1,10 +1,21 @@
 <h1>Your future travel plans will appear here.</h1>
 
-
-
-
 <p>Find the perfect ride from thousands of destinations, or publish to share your travel costs.</p>
 
-{{#each currentUser.adquiredTrips as |trip|}}
-<li>{{trip.from}}</li>
-{{/each}}
+
+<div class="d-flex align-items-center flex-column">
+  {{#each currentUser.adquiredTrips as | trip | }}
+    <div
+      class="card mb-2 border-1 rounded-4 shadow nav-link"
+      style="width: 90%;"
+      href="/trips/{{trip.id}}"
+    >
+      <div class="card-body">
+        <li>{{trip.from}}</li>
+        <li>{{trip.to}}</li>
+        <li>Price: {{trip.price}}€</li>
+        <li>{{trip.user.user}}</li>
+      </div>
+    </div>
+  {{/each}}
+</div>
