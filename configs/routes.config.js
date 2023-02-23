@@ -20,6 +20,7 @@ router.get('/trips/:id', tripsController.detail);
 router.get('/trips/:id/edit', secure.isAuthenticated, tripsController.update);
 router.post('/trips/:id', secure.isAuthenticated, tripsController.doUpdate);
 router.post('/trips/:id/delete', secure.isAuthenticated, tripsController.delete);
+router.get('/trips/:id/book', secure.isAuthenticated, tripsController.book);
 
 
 

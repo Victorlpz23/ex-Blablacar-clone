@@ -69,3 +69,11 @@ module.exports.delete = (req, res, next) => {
   .catch(next)
 }
 
+module.exports.book = (req, res, next) => {
+  Trip.findById(req.params.id)
+  .populate('user')
+  .then((trip) => {
+    res.render('trips/book', { trip })
+  })
+  .catch(next);
+}
