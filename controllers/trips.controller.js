@@ -1,5 +1,8 @@
 // Requiring Trip model
-const Trip = require('../models/trip.model')
+const Trip = require('../models/trip.model');
+
+// Requiring User model
+const User = require('../models/user.model')
 
 // Defining actions for trips
 
@@ -75,9 +78,20 @@ module.exports.delete = (req, res, next) => {
 // Book a trip
 module.exports.book = (req, res, next) => {
   Trip.findById(req.params.id)
-  .populate('user')
   .then((trip) => {
     res.render('trips/book', { trip })
   })
   .catch(next);
+}
+
+// Asign a trip booked to the user
+module.exports.doBook = (req, res, next) => {
+  Trip.findById(req.params.id)
+  .then(() => {
+    req.user.adquiredTrips.push(req.params.id)
+    User.findByIdAndUpdate(req.user.id, req.user)
+      .then(() => {
+        res.redirect('/profile/rides')
+  }).catch(next);
+  }).catch(next);
 }

@@ -9,7 +9,7 @@
 </div>
 
 
-<a
-    class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal"
-    href="/profile/rides"
-  >Pay {{trip.price}}€</a>
+
+<form action="/trips/{{trip.id}}/book" method="POST">
+  <button type="submit" class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal">Pay {{trip.price}}€</button>
+</form>

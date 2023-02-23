@@ -21,6 +21,7 @@ router.get('/trips/:id/edit', secure.isAuthenticated, tripsController.update);
 router.post('/trips/:id', secure.isAuthenticated, tripsController.doUpdate);
 router.post('/trips/:id/delete', secure.isAuthenticated, tripsController.delete);
 router.get('/trips/:id/book', secure.isAuthenticated, tripsController.book);
+router.post('/trips/:id/book', secure.isAuthenticated, tripsController.doBook);
 
 
 
@@ -33,15 +34,12 @@ router.get('/profile', secure.isAuthenticated, userController.profile);
 router.get('/profile/:id/edit', secure.isAuthenticated, userController.update);
 router.post('/profile/:id', secure.isAuthenticated, storage.single('image'), userController.doUpdate);
 router.get('/profile/rides', secure.isAuthenticated, userController.rides);
-router.get('/logout', userController.logout);
 
-// Users login routes
+
+// Users login/logout routes
 router.get('/login', userController.login);
 router.post('/login', userController.doLogin);
-
-
-
-
+router.get('/logout', userController.logout);
 
 
 

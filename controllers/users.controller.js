@@ -91,6 +91,7 @@ module.exports.rides = (req, res, next) => {
 };
 
 
+// Controller for log out
 module.exports.logout = (req, res, next) => {
   req.session.destroy()
   res.redirect('/')
