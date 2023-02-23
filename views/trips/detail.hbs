@@ -17,20 +17,18 @@
 
 
 
-
-
 <a class="btn btn-primary" href="{{trip.id}}/edit">Edit</a>
 
 
 {{#isOwnedBy trip currentUser}}
-<form action="/trips/{{trip.id}}/delete" method="post">
+<form action="/trips/{{trip?.id}}/delete" method="POST">
 <button class="btn btn-danger" type="submit">Delete</button>
 </form>
 {{/isOwnedBy}}
 
 <a
     class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal"
-    href="/trips/{{trip.id}}/book"
+    href="/trips/{{trip?.id}}/book"
   >Continue</a>
 
 

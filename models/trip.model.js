@@ -20,9 +20,9 @@ const tripSchema = new Schema ({
     required: true
   },
   price: {
-      type: Number,
-      required: true,
-      min: 0,
+    type: Number,
+    required: true,
+    min: 0,
   },
   seats: {
     type: Number,

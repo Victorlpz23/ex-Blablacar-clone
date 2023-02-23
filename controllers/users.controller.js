@@ -45,7 +45,7 @@ module.exports.doLogin = (req, res, next) => {
     .compare(req.body.password, user.password)
       .then((ok) => {
         req.session.userId = user.id
-        res.redirect('/trips')
+        res.redirect('/')
       })
       .catch(next)
   })
@@ -89,3 +89,9 @@ module.exports.doUpdate = (req, res, next) => {
 module.exports.rides = (req, res, next) => {
   res.render('users/rides')
 };
+
+
+module.exports.logout = (req, res, next) => {
+  req.session.destroy()
+  res.redirect('/')
+}
