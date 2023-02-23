@@ -38,6 +38,7 @@ module.exports.doCreate = (req, res, next) => {
     .catch(next)
 }
 
+// Update a Trip
 module.exports.update = (req,res,next) => {
   Trip.findById(req.params.id)
   .then((trip) => {
@@ -45,6 +46,7 @@ module.exports.update = (req,res,next) => {
   }).catch(next)
 }
 
+// Update a Trip with changes
 module.exports.doUpdate = (req, res, next) => {
   Trip.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
   .then((trip) => {
@@ -53,6 +55,7 @@ module.exports.doUpdate = (req, res, next) => {
   .catch(next)
 }
 
+// Delete a Trip
 module.exports.delete = (req, res, next) => {
   Trip.findById(req.params.id)
     .then(trip => {
@@ -69,6 +72,7 @@ module.exports.delete = (req, res, next) => {
   .catch(next)
 }
 
+// Book a trip
 module.exports.book = (req, res, next) => {
   Trip.findById(req.params.id)
   .populate('user')

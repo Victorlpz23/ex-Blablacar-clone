@@ -83,3 +83,9 @@ module.exports.doUpdate = (req, res, next) => {
   })
   .catch(next)
 };
+
+
+// User profile rides
+module.exports.rides = (req, res, next) => {
+  res.render('users/rides')
+};

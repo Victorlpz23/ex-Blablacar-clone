@@ -24,6 +24,7 @@ router.get('/trips/:id/book', secure.isAuthenticated, tripsController.book);
 
 
 
+
 // Users routes
 router.get('/users/new', userController.create);
 router.post('/users/new', userController.doCreate);
@@ -31,6 +32,7 @@ router.get('/users', secure.isAuthenticated, secure.checkRole('admin'), userCont
 router.get('/profile', secure.isAuthenticated, userController.profile);
 router.get('/profile/:id/edit', secure.isAuthenticated, userController.update);
 router.post('/profile/:id', secure.isAuthenticated, storage.single('image'), userController.doUpdate);
+router.get('/profile/rides', secure.isAuthenticated, userController.rides);
 
 // Users login routes
 router.get('/login', userController.login);
