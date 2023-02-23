@@ -39,7 +39,7 @@ const userSchema = new Schema ({
   password: {
     type: String,
     required: [true, "Password is required"],
-    minLength: 8
+    minLength: [8, "Min Length 8 chars"]
   },
   image: {
     type: String,

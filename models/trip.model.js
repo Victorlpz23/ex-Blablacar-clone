@@ -21,14 +21,18 @@ const tripSchema = new Schema ({
   },
   price: {
       type: Number,
-      required: true
+      required: true,
+      min: 0,
   },
   seats: {
     type: Number,
-    required: true
+    required: true,
+    min: 1,
+    max: 6,
   },
   comments: {
     type: String,
+    maxLength: [120, "Max length 140 chars"],
   },
   date: {
     type: String,
