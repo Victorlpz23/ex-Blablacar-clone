@@ -87,11 +87,17 @@ module.exports.book = (req, res, next) => {
 // Asign a trip booked to the user
 module.exports.doBook = (req, res, next) => {
   Trip.findById(req.params.id)
-  .then(() => {
+  .then((trip) => {
     req.user.adquiredTrips.push(req.params.id)
     User.findByIdAndUpdate(req.user.id, req.user)
       .then(() => {
+        if (trip.seats <= 0) {
+          res.send("Trip Complete")
+        }
+        trip.seats--
+        Trip.findByIdAndUpdate(req.params.id, { seats: trip.seats})
+        .then(() => next()).catch(next)
         res.redirect('/profile/rides')
-  }).catch(next);
+      }).catch(next);
   }).catch(next);
 }

@@ -27,8 +27,8 @@ const tripSchema = new Schema ({
   seats: {
     type: Number,
     required: true,
-    min: 1,
-    max: 6,
+    min: 0,
+    max: 5,
   },
   comments: {
     type: String,
