@@ -1,6 +1,9 @@
 // Requiring User model
 const User = require('../models/user.model');
 
+// Requiring Trip model
+const Trip = require('../models/trip.model');
+
 // Require bcryptjs to encrypt the password
 const bcrypt = require('bcryptjs');
 
@@ -87,7 +90,12 @@ module.exports.doUpdate = (req, res, next) => {
 
 // User profile rides
 module.exports.rides = (req, res, next) => {
-  res.render('users/rides')
+  Trip.find()
+  .populate('user')
+  .then((trips) => {
+    res.render('users/rides', { trips })
+  })
+  .catch(next)
 };
 
 
