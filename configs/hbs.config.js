@@ -15,7 +15,7 @@ hbs.registerHelper('isOwnedBy', (trip, user, options) => {
   }
 });
 
-
+// Method to disable the trip if is complete
 hbs.registerHelper('isTripComplete', (seats) => {
-  return seats <= 0 ? "disabled bg-dark-subtle" : ""
-})
+  return seats <= 0 ? "disabled bg-body-secondary" : ""
+});
