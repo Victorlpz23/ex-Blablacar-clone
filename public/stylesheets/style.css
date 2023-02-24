@@ -84,3 +84,10 @@ body {
 .signUp {
   color: #00AFF5;
 }
+
+.anchors {
+  margin-left: 25px;
+  color: #00AFF5;
+  font-size: 18px;
+  margin-right: 25px;
+}

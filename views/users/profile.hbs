@@ -1,11 +1,30 @@
-<h1>{{currentUser.user}}</h1>
-<div>
-  <img class="rounded-circle" src="{{currentUser.image}}" alt="profile" width="240px" height="240px">
+
+<div class="d-flex justify-content-evenly border-bottom mb-5 pt-3">
+  <a class="text-decoration-none" href="/profile">About You</a>
+  <a class="text-decoration-none" href="">Account</a>
 </div>
 
-<a href="/photo">Edit Profile Photo</a>
 
-<a href="/profile/{{currentUser.id}}/edit">Edit Personal Info</a>
+<div class="mb-3 d-flex align-items-center flex-column">
+  <div class="d-flex justify-content-between mb-2"  style="width: 80%;">
+    <div>
+      <h1 class="pl-20 fw-bold mt-4">{{currentUser.user}}</h1>
+    </div>
+    <div>
+      <img class="rounded-circle" src="{{#if currentUser.image}} {{currentUser.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="120px" height="120px">
+    </div>
+  </div>
+</div>
+
+<div class="anchors mb-3 border-bottom d-flex align-items-start flex-column">
+  <div class="mb-4">
+    <a class="signUp text-decoration-none ml-3" href="/photo">Edit profile picture</a>
+  </div>
+  <div class="mb-4">
+    <a class="signUp text-decoration-none ml-3" href="/profile/{{currentUser.id}}/edit">Edit personal Details</a>
+  </div>
+</div>
+
 
 <h1>You have a Verify Profile</h1>
 <li>DNI</li>
