@@ -2,7 +2,7 @@
 <div class="d-flex align-items-center flex-column">
   {{#each trips as |trip|}}
     <a
-      class="card mb-2 border-1 rounded-4 shadow nav-link"
+      class="card mb-2 border-1 rounded-4 shadow nav-link {{isTripComplete trip.seats}}"
       style="width: 90%;"
       href="/trips/{{trip.id}}"
     >

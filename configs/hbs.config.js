@@ -14,3 +14,8 @@ hbs.registerHelper('isOwnedBy', (trip, user, options) => {
     return options.inverse();
   }
 });
+
+
+hbs.registerHelper('isTripComplete', (seats) => {
+  return seats <= 0 ? "disabled bg-dark-subtle" : ""
+})
