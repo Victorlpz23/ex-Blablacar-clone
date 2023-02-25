@@ -2,14 +2,14 @@
 <div class="d-flex align-items-center flex-column">
   {{#each trips as |trip|}}
     <a
-      class="card mb-2 border-1 rounded-4 shadow nav-link {{isTripComplete trip.seats}}"
+      class="card mb-2 border-1 rounded-4 shadow nav-link {{#isTripComplete trip}} disabled bg-body-secondary {{/isTripComplete}}"
       style="width: 90%;"
       href="/trips/{{trip.id}}"
     >
       <div class="card-body">
         <li>{{trip.from}}</li>
         <li>{{trip.to}}</li>
-        <li>Price: {{trip.price}}€</li>
+        <li>{{#isTripComplete trip}} Complete {{else}} Price: {{trip.price}}€ {{/isTripComplete}} </li>
         <li>Seats: {{trip.seats}}</li>
         <li>{{trip.user.user}}</li>
         <li>{{trip.date}}</li>

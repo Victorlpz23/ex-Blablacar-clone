@@ -27,7 +27,7 @@ const userSchema = new Schema ({
     required: [true, "Last Name is required"],
   },
   birthdate: {
-    type: Date,
+    type: String,
     required: [true, "Birthdate is required"],
   },
   email: {
