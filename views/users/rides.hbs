@@ -17,6 +17,7 @@
         <li>Price: {{trip.price}}€</li>
         <li>Seats: {{trip.seats}}</li>
         <li>{{trip.user.user}}</li>
+        <a class="btn btn-primary" href="/users/{{trip.user.id}}/rating">Rate</a>
       </div>
     </div>
   {{/each}}

@@ -8,6 +8,7 @@ const tripsController = require('../controllers/trips.controller');
 const userController = require('../controllers/users.controller');
 const secure = require('../middlewares/secure.mid');
 const storage = require('../configs/storage.config');
+const ratingController = require('../controllers/ratings.controller');
 
 // Defining the actions for paht request
 router.get('/', commonsController.home);
@@ -41,7 +42,9 @@ router.get('/login', userController.login);
 router.post('/login', userController.doLogin);
 router.get('/logout', userController.logout);
 
-
+// Ratings routes
+router.get('/users/:ownerId/rating', ratingController.rate);
+router.post('/users/:ownerId/rating', ratingController.doRate)
 
 
 

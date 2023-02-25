@@ -10,12 +10,15 @@ const ratingSchema = new Schema ({
   },
   rating: {
     type: Number,
+    min: 0,
+    max: 5,
     required: true
   },
   observations: {
     type: String,
   }
 })
+
 ratingSchema.virtual('rating', {
   ref: 'Rating',
   localField: 'ownerId',
