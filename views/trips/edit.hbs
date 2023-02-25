@@ -1,29 +1,41 @@
 <h1>Update trip</h1>
 
+{{#if errors}}
+  <div class="alert alert-danger">
+    review form data
+  </div>
+{{/if}}
+
 <form action="/trips/{{trip.id}}" method="POST">
     <div class="mb-3">
       <label for="from" class="form-label">From</label>
-      <input type="text" value="{{trip.from}}" name="from" id="from" class="form-control" placeholder="From City">
+      <input type="text" value="{{trip.from}}" name="from" id="from" class="form-control {{#if errors.from}}is-invalid{{/if}}" placeholder="From City">
+        {{#if errors.from}}<div class="invalid-feedback">{{errors.from}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="to" class="form-label">To</label>
-      <input type="text" value="{{trip.to}}" name="to" id="to" class="form-control" placeholder="Destiny City">
+      <input type="text" value="{{trip.to}}" name="to" id="to" class="form-control {{#if errors.to}}is-invalid{{/if}}" placeholder="Destiny City">
+        {{#if errors.to}}<div class="invalid-feedback">{{errors.to}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="price" class="form-label">Price</label>
-      <input type="number" value="{{trip.price}}" name="price" id="price" class="form-control" placeholder="Price">
+      <input type="number" value="{{trip.price}}" name="price" id="price" class="form-control {{#if errors.price}}is-invalid{{/if}}" placeholder="Price">
+        {{#if errors.price}}<div class="invalid-feedback">{{errors.price}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="date" class="form-label">Date</label>
-      <input type="date" value="{{trip.date}}" name="date" id="date" class="form-control" placeholder="Date">
+      <input type="date" value="{{trip.date}}" name="date" id="date" class="form-control {{#if errors.date}}is-invalid{{/if}}" placeholder="Date">
+        {{#if errors.date}}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="seats" class="form-label">Seats</label>
-      <input type="number" value="{{trip.seats}}" name="seats" id="seats" class="form-control" placeholder="Seats">
+      <input type="number" value="{{trip.seats}}" name="seats" id="seats" class="form-control {{#if errors.seats}}is-invalid{{/if}}" placeholder="Seats">
+        {{#if errors.seats}}<div class="invalid-feedback">{{errors.seats}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="comments" class="form-label">Comments</label>
-      <input type="text" value="{{trip.comments}}" name="comments" id="comments" class="form-control" placeholder="Comments">
+      <input type="text" value="{{trip.comments}}" name="comments" id="comments" class="form-control {{#if errors.comments}}is-invalid{{/if}}" placeholder="Comments">
+        {{#if errors.comments}}<div class="invalid-feedback">{{errors.comments}}</div>{{/if}}
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>

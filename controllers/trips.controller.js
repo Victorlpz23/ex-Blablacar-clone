@@ -2,7 +2,10 @@
 const Trip = require('../models/trip.model');
 
 // Requiring User model
-const User = require('../models/user.model')
+const User = require('../models/user.model');
+
+// Require mongoose to validation errors
+const mongoose = require('mongoose');
 
 // Defining actions for trips
 
@@ -55,7 +58,13 @@ module.exports.doUpdate = (req, res, next) => {
   .then((trip) => {
     res.redirect(`/trips/${req.params.id}`)
   })
-  .catch(next)
+  .catch((error) => {
+    if (error instanceof mongoose.Error.ValidationError) {
+      res.render("trips/edit", { errors: error.errors, user: req.body });
+    } else {
+      next(err);
+    }
+  })
 }
 
 // Delete a Trip
