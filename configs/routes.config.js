@@ -42,9 +42,9 @@ router.get('/login', userController.login);
 router.post('/login', userController.doLogin);
 router.get('/logout', userController.logout);
 
-// Ratings routes
-router.get('/users/:ownerId/rating', ratingController.rate);
-router.post('/users/:ownerId/rating', ratingController.doRate)
+// // Ratings routes
+// router.get('/users/:ownerId/rating', ratingController.rate);
+// router.post('/users/:ownerId/rating', ratingController.doRate);
 
 
 
