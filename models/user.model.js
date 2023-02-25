@@ -54,6 +54,15 @@ const userSchema = new Schema ({
   { timestamps: true }
 );
 
+userSchema.virtual('ratings', {
+  ref: 'Rating',
+  localField: '_id',
+  foreignField: 'user',
+  justOne: false
+});
+
+
+
 // This lines are for encrypting the password before save or post the form
 // Also, if the user edit the profile and not the password, we ensure that
 // the password is not hashed again.

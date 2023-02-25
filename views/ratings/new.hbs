@@ -1,7 +1,7 @@
 <h1>New rate</h1>
 
 
-<form action="/users/:ownerId/rating" method="POST">
+<form action="/users/{{userId}}/rating" method="POST">
     <div class="mb-3">
       <label for="rating" class="form-label">Rating</label>
       <input type="number"  name="rating" id="rating" class="form-control" placeholder="rating">

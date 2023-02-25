@@ -1,20 +1,26 @@
-// // Requiring Trip model
-// const Rating = require('../models/rating.model');
+// Requiring Rating model
+const Rating = require('../models/rating.model');
 
-// // Require mongoose to validation errors
-// const mongoose = require('mongoose');
+// Requiring Trip model
+const Trip = require('../models/trip.model');
 
 
-// module.exports.rate = (req, res, next) => {
-//   res.render('ratings/new')
-// }
+// Require mongoose to validation errors
+const mongoose = require('mongoose');
 
-// module.exports.doRate = (req, res, next) => {
-//   Rating.findByIdAndUpdate(req.user)
-//   .populate('user')
-//   .then(() => {
 
-//   }).catch(next)
+module.exports.rate = (req, res, next) => {
+  res.render('ratings/new', { userId: req.params.id })
+}
 
-// }
+module.exports.doRate = (req, res, next) => {
+  Rating.create({
+    user: req.params.id, 
+    observations: req.body.observations,
+    rating: req.body.rating,
+  })
+  .then(() => {
+    res.redirect('/')
+  }).catch(next)
+}
 
