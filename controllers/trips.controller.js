@@ -41,7 +41,13 @@ module.exports.doCreate = (req, res, next) => {
     .then(() => {
       res.redirect('/trips')
     })
-    .catch(next)
+    .catch((error) => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.render("trips/new", { errors: error.errors, trip: req.body });
+      } else {
+        next(err);
+      }
+    })
 }
 
 // Update a Trip
@@ -60,7 +66,7 @@ module.exports.doUpdate = (req, res, next) => {
   })
   .catch((error) => {
     if (error instanceof mongoose.Error.ValidationError) {
-      res.render("trips/edit", { errors: error.errors, user: req.body });
+      res.render("trips/edit", { errors: error.errors, trip: req.body });
     } else {
       next(err);
     }

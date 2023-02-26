@@ -9,33 +9,39 @@
           <div class="mb-3">
             <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
-                  <input type="from" name="from" class="form-control bg-body-secondary"
+                  <input type="from" value="{{trip.from}}" name="from" class="form-control bg-body-secondary {{#if errors.from}}is-invalid{{/if}}"
                     placeholder="From">
+                    {{#if errors.from}}<div class="invalid-feedback">{{errors.from}}</div>{{/if}}
               </div>
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
-                  <input type="to" name="to" class="form-control bg-body-secondary"
+                  <input type="to" value="{{trip.to}}" name="to" class="form-control bg-body-secondary {{#if errors.to}}is-invalid{{/if}}"
                     placeholder="To">
+                    {{#if errors.to}}<div class="invalid-feedback">{{errors.to}}</div>{{/if}}
               </div>
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-money fa-fw" aria-hidden="true"></i></span>
-                  <input type="number" name="price" class="form-control bg-body-secondary"
+                  <input type="number" value="{{trip.price}}" name="price" class="form-control bg-body-secondary {{#if errors.price}}is-invalid{{/if}}"
                     placeholder="Price">
+                    {{#if errors.price}}<div class="invalid-feedback">{{errors.price}}</div>{{/if}}
               </div>
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
-                  <input type="date" name="date" class="form-control bg-body-secondary"
+                  <input type="date" value="{{trip.date}}" name="date" class="form-control bg-body-secondary{{#if errors.date}}is-invalid{{/if}}"
                     placeholder="Date">
+                    {{#if errors.date}}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
               </div>
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-car fa-fw" aria-hidden="true"></i></span>
-                  <input type="number" name="seats" class="form-control bg-body-secondary"
+                  <input type="number" value="{{trip.seats}}" name="seats" class="form-control bg-body-secondary {{#if errors.seats}}is-invalid{{/if}}"
                     placeholder="Seats">
+                    {{#if errors.seats}}<div class="invalid-feedback">{{errors.seats}}</div>{{/if}}
               </div>
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-commenting fa-fw" aria-hidden="true"></i></span>
-                  <input type="text" name="comments" class="form-control bg-body-secondary"
+                  <input type="text" value="{{trip.comments}}" name="comments" class="form-control bg-body-secondary {{#if errors.comments}}is-invalid{{/if}}"
                     placeholder="Comments">
+                    {{#if errors.comments}}<div class="invalid-feedback">{{errors.comments}}</div>{{/if}}
               </div>
                 <button type="submit" class="login btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal row justify-content-center">Create</button>
         </form>
