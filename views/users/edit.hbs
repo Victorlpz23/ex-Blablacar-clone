@@ -1,21 +1,33 @@
+{{#if errors}}
+  <div class="alert alert-danger">
+    review form data
+  </div>
+{{/if}}
+
+
 <h1>Edit User</h1>
+
 
 <form action="/profile/{{currentUser.id}}" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="user" class="form-label">User</label>
-      <input type="text" value="{{currentUser.user}}" name="user" id="user" class="form-control" placeholder="User">
+      <input type="text" value="{{currentUser.user}}" name="user" id="user" class="form-control {{#if errors.user}}is-invalid{{/if}}" placeholder="User">
+      {{#if errors.user}}<div class="invalid-feedback">{{errors.user}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
-      <input type="text" value="{{currentUser.name}}" name="name" id="name" class="form-control" placeholder="Name">
+      <input type="text" value="{{currentUser.name}}" name="name" id="name" class="form-control {{#if errors.name}}is-invalid{{/if}}" placeholder="Name">
+      {{#if errors.name}}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="lastName" class="form-label">Last Name</label>
-      <input type="text" value="{{currentUser.lastName}}" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
+      <input type="text" value="{{currentUser.lastName}}" name="lastName" id="lastName" class="form-control {{#if errors.lastName}}is-invalid{{/if}}" placeholder="Last Name">
+      {{#if errors.lastName}}<div class="invalid-feedback">{{errors.lastName}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="birthdate" class="form-label">Birthdate</label>
-      <input type="date" value="{{currenUser.birthdate}}" name="birthdate" id="birthdate" class="form-control">
+      <input type="date" value="{{currenUser.birthdate}}" name="birthdate" id="birthdate" class="form-control {{#if errors.birthdate}}is-invalid{{/if}}">
+      {{#if errors.birthdate}}<div class="invalid-feedback">{{errors.birthdate}}</div>{{/if}}
     </div>
     <div class="mb-3">
       <label for="image" class="form-label">Profile Image</label>

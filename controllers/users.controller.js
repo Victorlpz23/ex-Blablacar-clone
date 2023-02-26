@@ -84,7 +84,13 @@ module.exports.doUpdate = (req, res, next) => {
   .then(() => {
     res.redirect('/profile')
   })
-  .catch(next)
+  .catch((error) => {
+    if (error instanceof mongoose.Error.ValidationError) {
+      res.render("users/edit", { errors: error.errors, user: req.body });
+    } else {
+      next(err);
+    }
+  })
 };
 
 
