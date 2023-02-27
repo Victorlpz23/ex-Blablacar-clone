@@ -38,6 +38,10 @@ const tripSchema = new Schema ({
     type: String,
     required: true
   },
+  departureTime: {
+    type: String,
+    required: true
+  },
 },
   { timestamps: true }
 );

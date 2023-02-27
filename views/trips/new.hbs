@@ -19,9 +19,15 @@
               </div>
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
-                  <input type="to" value="{{trip.to}}" name="to" class="form-control bg-body-secondary {{#if errors.to}}is-invalid{{/if}}"
+                  <input type="text" value="{{trip.to}}" name="to" class="form-control bg-body-secondary {{#if errors.to}}is-invalid{{/if}}"
                     placeholder="To">
                     {{#if errors.to}}<div class="invalid-feedback">{{errors.to}}</div>{{/if}}
+              </div>
+              <div class="input-group mb-2">
+                  <span class="input-group-text"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i></span>
+                  <input type="time" value="{{trip.departureTime}}" name="departureTime" class="form-control bg-body-secondary {{#if errors.departureTime}}is-invalid{{/if}}"
+                    placeholder="Departure Time">
+                    {{#if errors.departureTime}}<div class="invalid-feedback">{{errors.departureTime}}</div>{{/if}}
               </div>
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-money fa-fw" aria-hidden="true"></i></span>

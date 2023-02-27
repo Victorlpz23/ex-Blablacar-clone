@@ -37,6 +37,7 @@ User.deleteMany()
           user: user.id,
           from: faker.address.city(),
           to: faker.address.city(),
+          departureTime: `${Math.floor(Math.random() * 24)}:${Math.floor(Math.random() * 60)}`,
           price: faker.random.numeric(2),
           date: faker.date.future(),
           seats: 3,
