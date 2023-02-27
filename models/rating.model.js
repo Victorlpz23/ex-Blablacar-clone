@@ -9,6 +9,11 @@ const ratingSchema = new Schema ({
     ref: "User",
     required: true
   },
+  sender: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
   rating: {
     type: Number,
     min: 0,
@@ -17,7 +22,7 @@ const ratingSchema = new Schema ({
   },
   observations: {
     type: String,
-  }
+  },
 })
 
 

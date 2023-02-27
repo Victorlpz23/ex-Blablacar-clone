@@ -122,3 +122,8 @@ module.exports.logout = (req, res, next) => {
   req.session.destroy()
   res.redirect('/')
 }
+
+// Controller for log out
+module.exports.account = (req, res, next) => {
+  res.render('users/account')
+}
