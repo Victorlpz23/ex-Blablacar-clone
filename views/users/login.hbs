@@ -1,11 +1,15 @@
+{{#if errors}}
+  <div class="alert alert-danger">
+    review form data
+  </div>
+{{/if}}
+
 
 <div class="row mx-auto justify-content-center pt-25" style="width: 100%;">
   <div class="col-12 col-md-4 row justify-content-center">
      <h1 class="fs-25 mt-25">What's your email and password?</h1>
     <div class="card border-0">
       <div class="card-body">
-        {{#if errors}}<div class="alert alert-danger">Review form data</div>{{/if}}
-        
         <form action="/login" method="POST">
           <div class="input-group mb-2">
             <span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>

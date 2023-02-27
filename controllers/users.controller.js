@@ -28,7 +28,7 @@ module.exports.doCreate = (req, res, next) => {
       if (error instanceof mongoose.Error.ValidationError) {
         res.render("users/new", { errors: error.errors, user: req.body });
       } else {
-        next(err);
+        next(error);
       }
     })
 }
@@ -50,9 +50,21 @@ module.exports.doLogin = (req, res, next) => {
         req.session.userId = user.id
         res.redirect('/')
       })
-      .catch(next)
+      .catch((error) => {
+        if (error instanceof mongoose.Error.ValidationError) {
+          res.render("users/login", { errors: error.errors, user: req.body });
+        } else {
+          next(error);
+        }
+      })
   })
-  .catch(next)
+  .catch((error) => {
+    if (error instanceof mongoose.Error.ValidationError) {
+      res.render("users/login", { errors: error.errors, user: req.body });
+    } else {
+      next(error);
+    }
+  })
 };
 
 // List of users
@@ -88,7 +100,7 @@ module.exports.doUpdate = (req, res, next) => {
     if (error instanceof mongoose.Error.ValidationError) {
       res.render("users/edit", { errors: error.errors, user: req.body });
     } else {
-      next(err);
+      next(error);
     }
   })
 };

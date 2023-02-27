@@ -45,7 +45,7 @@ module.exports.doCreate = (req, res, next) => {
       if (error instanceof mongoose.Error.ValidationError) {
         res.render("trips/new", { errors: error.errors, trip: req.body });
       } else {
-        next(err);
+        next(error);
       }
     })
 }
@@ -68,7 +68,7 @@ module.exports.doUpdate = (req, res, next) => {
     if (error instanceof mongoose.Error.ValidationError) {
       res.render("trips/edit", { errors: error.errors, trip: req.body });
     } else {
-      next(err);
+      next(error);
     }
   })
 }
