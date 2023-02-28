@@ -35,7 +35,7 @@ router.get('/profile', secure.isAuthenticated, userController.profile);
 router.get('/profile/:id/edit', secure.isAuthenticated, userController.update);
 router.post('/profile/:id', secure.isAuthenticated, storage.single('image'), userController.doUpdate);
 router.get('/profile/rides', secure.isAuthenticated, userController.rides);
-router.get('/profile/account', secure.isAuthenticated, userController.account);
+router.get('/profile/ratings', secure.isAuthenticated, userController.ratings);
 
 
 // Users login/logout routes

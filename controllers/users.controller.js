@@ -127,6 +127,6 @@ module.exports.logout = (req, res, next) => {
 }
 
 // Controller for log out
-module.exports.account = (req, res, next) => {
-  res.render('users/account')
+module.exports.ratings = (req, res, next) => {
+  res.render('users/ratings')
 }
