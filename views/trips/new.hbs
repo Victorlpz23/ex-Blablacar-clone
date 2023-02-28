@@ -11,20 +11,24 @@
       <div class="card-body">
         <form action="/trips/new" method="POST">
           <div class="mb-3">
+
             <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
                   <input type="from" value="{{trip.from}}" name="from" class="form-control g-places-finder bg-body-secondary {{#if errors.from}}is-invalid{{/if}}"
                     placeholder="From">
                     {{#if errors.from}}<div class="invalid-feedback">{{errors.from}}</div>{{/if}}
               </div>
+                <input type="hidden" name="latFrom" value="{{trip.latFrom}}">
+                <input type="hidden" name="lngFrom" value="{{trip.lngFrom}}">
+
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
                   <input type="to" value="{{trip.to}}" name="to" class="form-control g-places-finder bg-body-secondary {{#if errors.to}}is-invalid{{/if}}"
                     placeholder="To">
                     {{#if errors.to}}<div class="invalid-feedback">{{errors.to}}</div>{{/if}}
               </div>
-              <input type="hidden" name="lat" value="{{trip.lat}}">
-              <input type="hidden" name="lng" value="{{trip.lng}}">
+              <input type="hidden" name="latTo" value="{{trip.latTo}}">
+              <input type="hidden" name="lngTo" value="{{trip.lngTo}}">
 
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i></span>

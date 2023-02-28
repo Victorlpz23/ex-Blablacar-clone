@@ -6,21 +6,26 @@ function initGooglePlaces() {
 }
 
 function initSearchBar() {
-  const input = document.querySelector('.g-places-finder');
+  const input = document.querySelectorAll('.g-places-finder');
   if (input) {
     const options = {
       componentRestrictions: { country: "es" },
       fields: ["address_components", "geometry", "icon", "name"],
       strictBounds: false
     };
-    const autocomplete = new google.maps.places.Autocomplete(input, options);
-    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    
+    input.forEach(places => {
+      const destination = places.name[0].toUpperCase() + places.name.substring(1);
+      const autocomplete = new google.maps.places.Autocomplete(places, options);
+      google.maps.event.addListener(autocomplete, 'place_changed', function () {
       const place = autocomplete.getPlace();
       const lat = place.geometry.location.lat();
       const lng = place.geometry.location.lng();
 
-      document.querySelector('[name="lat"]').value = lat;
-      document.querySelector('[name="lng"]').value = lng;
+      document.querySelector(`[name="lat${destination}"]`).value = lat;
+      document.querySelector(`[name="lng${destination}"]`).value = lng;
     });
+    })
+    
   }
 }
