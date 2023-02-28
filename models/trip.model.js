@@ -42,10 +42,24 @@ const tripSchema = new Schema ({
     type: String,
     required: true
   },
+  address: {
+    type: String
+  },
+  location: {
+    type: {
+      type: String,
+      enum: ['Point'],
+    },
+    coordinates: {
+      type: [Number]
+    },
+  }
 },
   { timestamps: true }
 );
 
+
+tripSchema.index({ location: '2dsphere' });
 
 // Export the model to use in the app
 const Trip = mongoose.model('Trip', tripSchema);
