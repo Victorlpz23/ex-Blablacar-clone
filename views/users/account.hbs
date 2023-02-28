@@ -24,20 +24,10 @@
   </div>
 </div>
 
-
-<div class="mb-3 d-flex align-items-center flex-column">
-  <div class="d-flex justify-content-between mb-2"  style="width: 88%;">
-    <div>
-      <h3 class="pl-30 fw-bold mt-4">Ratings you've left'</h3>
-    </div>
-  </div>
-</div>
-
-
-{{#each currentUser.ratings as |r|}}
+{{#each currentUser.receivedRatings as |r|}}
   <ul>
     <li>
-      User you left rate: {{r.user}}
+      User: {{r.sender.name}}
     </li>
     <li>
        Rate: {{r.rating}}
@@ -48,3 +38,27 @@
   </ul>
 {{/each}}
 
+
+<div class="mb-3 d-flex align-items-center flex-column">
+  <div class="d-flex justify-content-between mb-2"  style="width: 88%;">
+    <div>
+      <h3 class="pl-30 fw-bold mt-4">Ratings you've left'</h3>
+    </div>
+  </div>
+</div>
+
+
+
+{{#each currentUser.givenRatings as |r|}}
+  <ul>
+    <li>
+      User: {{r.user.name}}
+    </li>
+    <li>
+       Rate: {{r.rating}}
+    </li>
+    <li>
+      Observations {{r.observations}}
+    </li>
+  </ul>
+{{/each}}

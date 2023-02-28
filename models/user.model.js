@@ -54,10 +54,17 @@ const userSchema = new Schema ({
   { timestamps: true }
 );
 
-userSchema.virtual('ratings', {
+userSchema.virtual('receivedRatings', {
   ref: 'Rating',
   localField: '_id',
   foreignField: 'user',
+  justOne: false
+});
+
+userSchema.virtual('givenRatings', {
+  ref: 'Rating',
+  localField: '_id',
+  foreignField: 'sender',
   justOne: false
 });
 

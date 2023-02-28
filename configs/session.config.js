@@ -37,7 +37,18 @@ module.exports.loadSessionUser = (req, res, next) => {
           path: 'user'
         }
       })
-      .populate('ratings')
+      .populate({
+        path: 'receivedRatings',
+        populate: {
+          path: 'sender'
+        }
+      })
+      .populate({
+        path: 'givenRatings',
+        populate: {
+          path: 'user'
+        }
+      })
       .then((user) => {
         req.user = user
         res.locals.currentUser = user
