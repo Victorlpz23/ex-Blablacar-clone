@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 
 // Creating a message schema
 const messageSchema = new Schema ({
-  driver: {
+  from: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true
   },
-  passenger: {
+  to: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true
