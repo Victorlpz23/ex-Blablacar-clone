@@ -36,20 +36,26 @@ module.exports.create = (req, res, next) => {
 
 // Create a trip and get the info
 module.exports.doCreate = (req, res, next) => {
-  const { lat, lng } = req.body;
+  const { latFrom, lngFrom, latTo, lngTo } = req.body;
 
   const trip = req.body;
   trip.user = req.user.id;
 
-  if ( lat && lng) {
-    trip.location = {
+  if ( latFrom && lngFrom && latTo && lngTo) {
+    trip.locationFrom = {
       type: 'Point',
-      coordinates: [lng, lat]
+      coordinates: [lngFrom, latFrom]
+    }
+    trip.locationTo = {
+      type: 'Point',
+      coordinates: [lngTo, latTo]
     }
   }
 
   Trip.create(trip) 
     .then(() => {
+      console.log(trip.locationFrom)
+      console.log(trip.locationTo)
       res.redirect('/trips')
     })
     .catch((error) => {

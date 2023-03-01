@@ -112,7 +112,9 @@
                 rx="1"
                 fill="#708C91"
               ></rect></g></svg>
-          <p class="today ml-3">Today</p>
+            <input type="date" value="{{trip.date}}" name="date" onfocus="(type='Today')" class="form-control text-secondary border-0 {{#if errors.date}}is-invalid{{/if}}"
+              placeholder="Today">
+              {{#if errors.date}}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
         </div>
       </div>
       <div class="flex-grow-1 p-2 border-start">
