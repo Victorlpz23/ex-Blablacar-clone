@@ -51,11 +51,8 @@ module.exports.doCreate = (req, res, next) => {
       coordinates: [lngTo, latTo]
     }
   }
-
   Trip.create(trip) 
     .then(() => {
-      console.log(trip.locationFrom)
-      console.log(trip.locationTo)
       res.redirect('/trips')
     })
     .catch((error) => {

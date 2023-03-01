@@ -23,3 +23,8 @@ hbs.registerHelper('isTripComplete', (trip, options) => {
     return options.inverse()
   }
 });
+
+// Method to calculate the average of ratings
+hbs.registerHelper('ratingAverage', (receivedRatings) => {
+  return Math.round(receivedRatings.map(x => x = x.rating).reduce((a, b) => a + b, 0) / receivedRatings.length);
+})
