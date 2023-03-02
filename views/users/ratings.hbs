@@ -15,12 +15,7 @@
   </div>
 </div>
 
-<div>
-  <h1>{{ratingAverage currentUser.receivedRatings}}/5</h1>
-  <small>
-    {{currentUser.receivedRatings.length}} Ratings
-  </small>
-</div>
+
 
 
 <div class="mb-3 d-flex align-items-center flex-column">
@@ -31,18 +26,32 @@
   </div>
 </div>
 
+<div class="card mx-auto border-0 border-bottom mb-4" style="width: 90%;">
+  <h1 class="fs-1">{{ratingAverage currentUser.receivedRatings}}/5</h1>
+  <small class="mb-3 text-secondary">
+    {{currentUser.receivedRatings.length}} Ratings
+  </small>
+</div>
+
+
+
+
+
 {{#each currentUser.receivedRatings as |r|}}
-  <ul>
-    <li>
-      User: {{r.sender.name}}
-    </li>
-    <li>
-       Rate: {{r.rating}}
-    </li>
-    <li>
-      Observations: {{r.observations}}
-    </li>
-  </ul>
+<div class="mb-3 d-flex align-items-center flex-column">
+  <div class="d-flex justify-content-between mb-2"  style="width: 80%;">
+    <div>
+      <h1 class="pl-20 fw-bold mt-4">{{r.sender.name}}</h1>
+    </div>
+    <div>
+      <img class="rounded-circle" src="{{#if currentUser.image}} {{r.sender.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
+    </div>
+  </div>
+</div>
+<div class="card mx-auto border-0 border-bottom" style="width: 90%;">
+    <h3>{{r.rating}}/5</h3>
+     <p>{{r.observations}}</p>
+</div> 
 {{/each}}
 
 
@@ -57,15 +66,18 @@
 
 
 {{#each currentUser.givenRatings as |r|}}
-  <ul>
-    <li>
-      User: {{r.user.name}}
-    </li>
-    <li>
-       Rate: {{r.rating}}
-    </li>
-    <li>
-      Observations {{r.observations}}
-    </li>
-  </ul>
+<div class="mb-3 d-flex align-items-center flex-column">
+  <div class="d-flex justify-content-between mb-2"  style="width: 80%;">
+    <div>
+      <h1 class="pl-20 fw-bold mt-4">{{r.user.name}}</h1>
+    </div>
+    <div>
+      <img class="rounded-circle" src="{{#if r.user.image}} {{r.user.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
+    </div>
+  </div>
+</div>
+<div class="card mx-auto border-0 border-bottom" style="width: 90%;">
+    <h3>{{r.rating}}/5</h3>
+     <p>{{r.observations}}</p>
+</div> 
 {{/each}}

@@ -28,7 +28,6 @@ const userSchema = new Schema ({
   },
   birthdate: {
     type: String,
-    required: [true, "Birthdate is required"],
   },
   email: {
     type: String,

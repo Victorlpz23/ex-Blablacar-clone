@@ -126,7 +126,13 @@ module.exports.logout = (req, res, next) => {
   res.redirect('/')
 }
 
-// Controller for log out
+// Controller for ratings
 module.exports.ratings = (req, res, next) => {
-  res.render('users/ratings')
+  Rating.find()
+    .populate('user')
+    .then((ratings) => {
+      res.render('users/ratings', { ratings  })
+    })
+    .catch(next)
+  
 }

@@ -11,33 +11,33 @@ const mongoose = require('mongoose');
 
 // List of trips
 module.exports.list = (req, res, next) => {
-  const { latFrom, lngFrom, latTo, lngTo } = req.query;
-  const criterial = {};
+  // const { latFrom, lngFrom, latTo, lngTo } = req.query;
+  // const criterial = {};
 
-  // criterial.seats = seats;
-  // criterial.date = date;
-  criterial.locationFrom = {
-    $near: {
-      $geometry: {
-        type: "Point",
-        coordinates: [lngFrom, latFrom]
-      },
-      $maxDistance: 7000
-   }
-  }
+  // // criterial.seats = seats;
+  // // criterial.date = date;
+  // criterial.locationFrom = {
+  //   $near: {
+  //     $geometry: {
+  //       type: "Point",
+  //       coordinates: [lngFrom, latFrom]
+  //     },
+  //     $maxDistance: 7000
+  //  }
+  // }
 
-  criterial.locationTo = {
-    $near: {
-      $geometry: {
-        type: "Point",
-        coordinates: [lngTo, latTo]
-      },
-      $maxDistance: 7000
-   }
-  }
+  // criterial.locationTo = {
+  //   $near: {
+  //     $geometry: {
+  //       type: "Point",
+  //       coordinates: [lngTo, latTo]
+  //     },
+  //     $maxDistance: 7000
+  //  }
+  // }
 
 
-  Trip.find(criterial)
+  Trip.find()
   .populate('user')
   .then((trips) => {
     res.render('trips/list', { trips })

@@ -35,8 +35,8 @@ User.deleteMany()
     .then(user => {
         Trip.create({
           user: user.id,
-          from: faker.address.city(),
-          to: faker.address.city(),
+          from: "Madrid, España",
+          to: "Valencia, España",
           departureTime: `${Math.floor(Math.random() * 24)}:${Math.floor(Math.random() * 60)}`,
           price: faker.random.numeric(2),
           date: faker.date.future(),
