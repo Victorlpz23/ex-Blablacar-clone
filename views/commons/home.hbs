@@ -20,13 +20,15 @@
             fill="#708C91"
           ></path></svg>
       </div>
-      <div class="input-group mb-3">
-          <input type="from" value="{{trip.from}}" name="from" class="form-control fs-5 g-places-finder  text-secondary border-0 {{#if errors.from}}is-invalid{{/if}}"
-            placeholder="Leaving from...">
-            {{#if errors.from}}<div class="invalid-feedback">{{errors.from}}</div>{{/if}}
-      </div>
-        <input type="hidden" name="latFrom" value="{{trip.latFrom}}">
-        <input type="hidden" name="lngFrom" value="{{trip.lngFrom}}">
+
+  <form action="/trips" method="get">
+        <div class="input-group mb-3">
+            <input type="from" value="{{query.from}}" name="from" class="form-control fs-5 g-places-finder text-secondary border-0 {{#if errors.from}}is-invalid{{/if}}"
+              placeholder="Leaving from...">
+              {{#if errors.from}}<div class="invalid-feedback">{{errors.from}}</div>{{/if}}
+        </div>
+          <input type="hidden" name="latFrom" value="{{query.latFrom}}">
+          <input type="hidden" name="lngFrom" value="{{query.lngFrom}}">
     </div>
     <div class="border-bottom"></div>
     <div class="mt-2 d-flex flex-row">
@@ -51,8 +53,8 @@
           placeholder="Going to...">
           {{#if errors.to}}<div class="invalid-feedback">{{errors.to}}</div>{{/if}}
     </div>
-    <input type="hidden" name="latTo" value="{{trip.latTo}}">
-    <input type="hidden" name="lngTo" value="{{trip.lngTo}}">
+    <input type="hidden" name="latTo" value="{{query.latTo}}">
+    <input type="hidden" name="lngTo" value="{{query.lngTo}}">
     </div>
 
     <div class="border-bottom"></div>
@@ -112,7 +114,7 @@
                 rx="1"
                 fill="#708C91"
               ></rect></g></svg>
-            <input type="date" value="{{trip.date}}" name="date" onfocus="(type='Today')" class="form-control text-secondary border-0 {{#if errors.date}}is-invalid{{/if}}"
+            <input type="date" value="{{query.date}}" name="date" class="form-control text-secondary border-0 {{#if errors.date}}is-invalid{{/if}}"
               placeholder="Today">
               {{#if errors.date}}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
         </div>
@@ -132,15 +134,17 @@
       </div>
     </div>
   </div>
-  <div>
-    <button
-      href="#"
-      class="search btn rounded-4 rounded-top-0 w-100"
-    >Search</button>
+      <div>
+        <button
+          type="submit"
+          class="search btn rounded-4 rounded-top-0 w-100"
+        >Search</button>
+      </div>
   </div>
-</div>
-<div class="card mx-auto border-0 mt-5" style="width: 90%;">
-  <div class="mb-3">
+  </form>
+
+  <div class="card mx-auto border-0 mt-5" style="width: 90%;">
+    <div class="mb-3">
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +179,7 @@
   <p class="fs-8 text-secondary">No matter where you’re going, by bus or
     carpool, find the perfect ride from our wide range of destinations and
     routes at low prices.</p>
-</div>
+  </div>
 <div class="card mx-auto border-0" style="width: 90%;">
   <div class="mb-3">
     <svg

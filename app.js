@@ -18,7 +18,7 @@ const { session, loadSessionUser } = require('./configs/session.config');
 const { notFound, statusError } = require('./middlewares/errors.mid');
 
 // Requiring locals 
-const { googleApiKey } = require('./middlewares/locals.mid');
+const { googleApiKey, query } = require('./middlewares/locals.mid');
 
 // Using this method to be able to save inputs in req.body
 app.use(express.urlencoded());
@@ -32,6 +32,9 @@ app.use(loadSessionUser);
 
 // Using Google Api
 app.use(googleApiKey);
+
+// Using query middleware
+app.use(query);
 
 // Requiring hbs config
 require('./configs/hbs.config');
