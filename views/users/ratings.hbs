@@ -4,19 +4,14 @@
   <a class="text-decoration-none text-dark fw-bold" href="/profile/ratings">Ratings</a>
 </div>
 
-<div class="mb-3 d-flex align-items-center flex-column">
-  <div class="d-flex justify-content-between mb-2"  style="width: 80%;">
-    <div>
-      <h1 class="pl-20 fw-bold mt-4">{{currentUser.user}}</h1>
-    </div>
-    <div>
-      <img class="rounded-circle" src="{{#if currentUser.image}} {{currentUser.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="120px" height="120px">
-    </div>
-  </div>
+
+<div class="card mx-auto border-0 mb-4" style="width: 80%;">
+  <h1 class="ratings">{{ratingAverage currentUser.receivedRatings}}/5</h1>
+  <small class="mb-3 text-secondary">
+    {{currentUser.receivedRatings.length}} Ratings
+  </small>
 </div>
-
-
-
+<div class="border-bottom border-5 mb-4" style="width: 100%;"></div>
 
 <div class="mb-3 d-flex align-items-center flex-column">
   <div class="d-flex justify-content-between mb-2"  style="width: 88%;">
@@ -25,15 +20,6 @@
     </div>
   </div>
 </div>
-
-<div class="card mx-auto border-0 border-bottom mb-4" style="width: 90%;">
-  <h1 class="fs-1">{{ratingAverage currentUser.receivedRatings}}/5</h1>
-  <small class="mb-3 text-secondary">
-    {{currentUser.receivedRatings.length}} Ratings
-  </small>
-</div>
-
-
 
 
 
@@ -44,16 +30,17 @@
       <h1 class="pl-20 fw-bold mt-4">{{r.sender.name}}</h1>
     </div>
     <div>
-      <img class="rounded-circle" src="{{#if currentUser.image}} {{r.sender.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
+      <img class="rounded-circle mt-2" src="{{#if currentUser.image}} {{r.sender.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
     </div>
   </div>
 </div>
-<div class="card mx-auto border-0 border-bottom" style="width: 90%;">
+<div class="card mx-auto border-0 border-bottom mb-5" style="width: 80%;">
     <h3>{{r.rating}}/5</h3>
      <p>{{r.observations}}</p>
 </div> 
 {{/each}}
 
+<div class="border-bottom border-5 mb-4" style="width: 100%;"></div>
 
 <div class="mb-3 d-flex align-items-center flex-column">
   <div class="d-flex justify-content-between mb-2"  style="width: 88%;">
@@ -72,12 +59,13 @@
       <h1 class="pl-20 fw-bold mt-4">{{r.user.name}}</h1>
     </div>
     <div>
-      <img class="rounded-circle" src="{{#if r.user.image}} {{r.user.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
+      <img class="rounded-circle mt-2" src="{{#if r.user.image}} {{r.user.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
     </div>
   </div>
 </div>
-<div class="card mx-auto border-0 border-bottom" style="width: 90%;">
+ <div class="card mx-auto border-0 border-bottom mb-4" style="width: 80%;">
     <h3>{{r.rating}}/5</h3>
      <p>{{r.observations}}</p>
 </div> 
+
 {{/each}}
