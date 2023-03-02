@@ -168,3 +168,10 @@ module.exports.doBook = (req, res, next) => {
         }).catch(next);
     }).catch(next);
 }
+
+module.exports.all = (req, res, next) => {
+  Trip.find()
+  .then((trips) =>{
+    res.render('trips/all', { trips })
+  }).catch(next)
+}

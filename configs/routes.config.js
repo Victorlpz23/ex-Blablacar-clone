@@ -18,12 +18,14 @@ router.get('/', commonsController.home);
 router.get('/trips', tripsController.list);
 router.get('/trips/new', secure.isAuthenticated, tripsController.create);
 router.post('/trips/new', secure.isAuthenticated, tripsController.doCreate);
+router.get('/trips/all', secure.isAuthenticated, secure.checkRole('admin'), tripsController.all);
 router.get('/trips/:id', secure.isAuthenticated, tripsController.detail);
 router.get('/trips/:id/edit', secure.isAuthenticated, tripsController.update);
 router.post('/trips/:id', secure.isAuthenticated, tripsController.doUpdate);
 router.post('/trips/:id/delete', secure.isAuthenticated, tripsController.delete);
 router.get('/trips/:id/book', secure.isAuthenticated, tripsController.book);
 router.post('/trips/:id/book', secure.isAuthenticated, tripsController.doBook);
+
 
 
 
