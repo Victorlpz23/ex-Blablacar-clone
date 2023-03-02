@@ -54,7 +54,7 @@ app.use(routes);
 
 // Using errors middleware for errors page 
 app.use(notFound);
-app.use(statusError);
+//app.use(statusError);
 
 
 

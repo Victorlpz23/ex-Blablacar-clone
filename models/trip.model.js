@@ -65,7 +65,8 @@ const tripSchema = new Schema ({
 );
 
 
-tripSchema.index({ locationFrom: '2dsphere', locationTo: '2dsphere'  });
+tripSchema.index({ locationFrom: '2dsphere'})
+tripSchema.index({ locationTo: '2dsphere'})
 
 // Export the model to use in the app
 const Trip = mongoose.model('Trip', tripSchema);
