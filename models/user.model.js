@@ -48,7 +48,8 @@ const userSchema = new Schema ({
     enum: ["admin", "guest"],
     default: "guest"
   },
-  adquiredTrips: [{ type: mongoose.Schema.Types.ObjectId, ref: "Trip" }]
+  adquiredTrips: [{ type: mongoose.Schema.Types.ObjectId, ref: "Trip" }],
+  adquiredChats: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
 },
   { timestamps: true }
 );

@@ -1,6 +1,9 @@
 // Requiring Message model
 const Message = require('../models/message.model');
 
+// Requiring User model
+const User = require('../models/user.model');
+
 
 // List of message between users
 module.exports.list = ((req, res, next) => {
@@ -20,19 +23,38 @@ module.exports.list = ((req, res, next) => {
 
 
 // Create a message to another user
-module.exports.doCreate = ((req, res, next) => {
+module.exports.doCreate = (req, res, next) => {
   Message.create({
-    from: req.user.id,
-    to: req.params.id,
     message: req.body.message,
+    to: req.params.id,
+    from: req.user.id
   })
-    .then(() => {
-      res.redirect(`/users/${req.params.id}/chat`)
-    }).catch(next)
-});
+  .then(() => {
+    if (req.user.adquiredChats.includes(req.params.id)){
+    } else {
+      req.user.adquiredChats.push(req.params.id)
+      User.findByIdAndUpdate(req.user.id, req.user)
+      .then(() => console.log('updated'))
+      .catch(next)
+      User.findById(req.params.id)
+      .then((userTo) => {
+        userTo.adquiredChats.push(req.user.id)
+        User.findByIdAndUpdate(req.params.id, userTo)
+          .then(() => console.log('updated'))
+          .catch(next)
+      })
+      .catch(next)
+    }
+    res.redirect(`/users/${req.params.id}/chat`)
+  })
+  .catch(next)
+}
 
 
 
 module.exports.inbox = (req, res, next) => {
+  Message.findOne({
+    
+  })
   res.render('messages/inbox')
 }
