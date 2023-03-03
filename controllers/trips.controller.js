@@ -45,6 +45,12 @@ criterial.locationFrom = fromNear
         locationTo: toNear,
         _id: { $in: trips.map(x => x._id) }
       })
+      .populate({
+        path: 'user',
+        populate: {
+          path: 'receivedRatings'
+        }
+      })
     })
     .then(trips => {
       res.render('trips/list', { trips })
