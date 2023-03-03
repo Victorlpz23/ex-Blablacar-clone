@@ -175,9 +175,15 @@ module.exports.doBook = (req, res, next) => {
     }).catch(next);
 }
 
-module.exports.all = (req, res, next) => {
+module.exports.all = (req, res,next) => {
   Trip.find()
-  .then((trips) =>{
+  .populate({
+    path: 'user',
+      populate: {
+        path: 'receivedRatings'}
+  })
+  .then((trips) => {
     res.render('trips/all', { trips })
-  }).catch(next)
+  })
+  .catch(next);
 }

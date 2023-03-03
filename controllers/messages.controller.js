@@ -30,7 +30,8 @@ module.exports.doCreate = (req, res, next) => {
     from: req.user.id
   })
   .then(() => {
-    if (req.user.adquiredChats.includes(req.params.id)){
+    console.log(req.user.adquiredChats.map((x) => x = x.id))
+    if (req.user.adquiredChats.map((x) => x = x.id).includes(req.params.id)){
     } else {
       req.user.adquiredChats.push(req.params.id)
       User.findByIdAndUpdate(req.user.id, req.user)
@@ -51,10 +52,6 @@ module.exports.doCreate = (req, res, next) => {
 }
 
 
-
 module.exports.inbox = (req, res, next) => {
-  Message.findOne({
-    
-  })
   res.render('messages/inbox')
 }

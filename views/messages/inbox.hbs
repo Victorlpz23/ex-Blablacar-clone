@@ -1,1 +1,13 @@
-<h1>Message</h1>
+<h1>Messages</h1>
+
+
+<div class="d-flex align-items-center flex-column"></div>
+  {{#each currentUser.adquiredChats as | chat | }}
+    <div class="d-flex flex-row mt-4"></div>
+    <a href="users/{{chat.id}}/chat">
+        <h2>Chat with {{chat.user}}</h2>
+        <img class="rounded-circle me-4" width="48px" height="48px" src="{{#if chat.image}} {{chat.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="{{chat.name}} image">
+         </a>
+      </div>
+  {{/each}}
+</div>

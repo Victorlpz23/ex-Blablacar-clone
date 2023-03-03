@@ -128,11 +128,5 @@ module.exports.logout = (req, res, next) => {
 
 // Controller for ratings
 module.exports.ratings = (req, res, next) => {
-  Rating.find()
-    .populate('user')
-    .then((ratings) => {
       res.render('users/ratings', { ratings  })
-    })
-    .catch(next)
-  
 }

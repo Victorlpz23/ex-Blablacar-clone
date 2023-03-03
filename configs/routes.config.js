@@ -53,7 +53,7 @@ router.post('/users/:id/rating', secure.isAuthenticated, ratingController.doRate
 // Message routes
 router.get('/users/:id/chat', secure.isAuthenticated, messageController.list);
 router.post('/users/:id/chat', secure.isAuthenticated, messageController.doCreate);
-router.get('/profile/inbox', secure.isAuthenticated, messageController.inbox)
+router.get('/inbox', secure.isAuthenticated, messageController.inbox)
 
 
 
