@@ -14,7 +14,7 @@ module.exports.list = ((req, res, next) => {
     .populate('to')
     .then((messages) => {
       res.render('messages/chat', { messages, userId: req.params.id })
-    })
+    }).catch(next)
 });
 
 
@@ -30,3 +30,9 @@ module.exports.doCreate = ((req, res, next) => {
       res.redirect(`/users/${req.params.id}/chat`)
     }).catch(next)
 });
+
+
+
+module.exports.inbox = (req, res, next) => {
+  res.render('messages/inbox')
+}
