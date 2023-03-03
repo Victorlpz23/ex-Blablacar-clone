@@ -112,7 +112,11 @@ module.exports.doUpdate = (req, res, next) => {
 // User profile rides
 module.exports.rides = (req, res, next) => {
   Trip.find()
-    .populate('user')
+    .populate({
+    path: 'user',
+      populate: {
+        path: 'receivedRatings'}
+  })
     .then((trips) => {
       res.render('users/rides', { trips })
     })
@@ -128,5 +132,5 @@ module.exports.logout = (req, res, next) => {
 
 // Controller for ratings
 module.exports.ratings = (req, res, next) => {
-      res.render('users/ratings', { ratings  })
+  res.render('users/ratings')
 }
