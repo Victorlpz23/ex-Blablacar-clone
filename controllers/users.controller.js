@@ -134,3 +134,28 @@ module.exports.logout = (req, res, next) => {
 module.exports.ratings = (req, res, next) => {
   res.render('users/ratings')
 }
+
+
+// Controller for edit profile picture
+module.exports.picture = (req, res, next) => {
+  res.render('users/picture')
+}
+
+
+// Controller for post profile picture
+module.exports.doPicture = (req, res, next) => {
+  if (req.file) {
+    req.body.image = req.file.path
+  }
+  User.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
+    .then(() => {
+      res.redirect('/profile')
+    })
+    .catch((error) => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.render("users/picture", { errors: error.errors, user: req.body });
+      } else {
+        next(error);
+      }
+    })
+};

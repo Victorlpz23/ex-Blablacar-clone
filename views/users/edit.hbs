@@ -11,7 +11,7 @@
      <h1 class="fs-25 mt-25">Edit User</h1>
     <div class="card border-0">
       <div class="card-body">
-        <form action="/profile/{{currentUser.id}}" method="POST" enctype="multipart/form-data">
+        <form action="/profile/{{currentUser.id}}" method="POST">
           <div class="mb-3">
             <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
@@ -36,11 +36,6 @@
                   <input type="date" name="birthDate" value="{{currentUser.birthDate}}"  class="form-control bg-body-secondary {{#if errors.birthdate}}is-invalid{{/if}}"
                     placeholder="BirthDate">
                     {{#if errors.birthdate}}<div class="invalid-feedback">{{errors.birthdate}}</div>{{/if}}
-              </div>
-              <div class="input-group mb-2">
-                <label for="image" class="form-label">Profile Image</label>
-                <img id="image" class="m-2 rounded-circle" src="{{currentUser.image}}" width="200"/>
-                <input type="file" value="{{currenUser.image}}" name="image" id="image" class="form-control">
               </div>
                 <button type="submit" class="login btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal row justify-content-center">Update</button>
         </form>
