@@ -51,7 +51,7 @@ module.exports.doCreate = (req, res, next) => {
   .catch(next)
 }
 
-
+// Rendering the inbox page for user
 module.exports.inbox = (req, res, next) => {
   res.render('messages/inbox')
 }

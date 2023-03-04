@@ -64,7 +64,7 @@ const tripSchema = new Schema ({
   { timestamps: true }
 );
 
-
+// Index for Google maps
 tripSchema.index({ locationFrom: '2dsphere'})
 tripSchema.index({ locationTo: '2dsphere'})
 

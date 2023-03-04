@@ -175,6 +175,8 @@ module.exports.doBook = (req, res, next) => {
     }).catch(next);
 }
 
+
+// List of all trips for admins
 module.exports.all = (req, res,next) => {
   Trip.find()
   .populate({
@@ -188,7 +190,7 @@ module.exports.all = (req, res,next) => {
   .catch(next);
 }
 
-
+// Rendering the finder link 
 module.exports.finder = (req, res, next) => {
   res.render('trips/finder')
 }

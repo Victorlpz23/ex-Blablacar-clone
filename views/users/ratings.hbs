@@ -26,7 +26,7 @@
       <h1 class="pl-20 fw-bold mt-4">{{r.sender.name}}</h1>
     </div>
     <div>
-      <img class="rounded-circle mt-2" src="{{#if currentUser.image}} {{r.sender.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
+      <img class="rounded-circle mt-2" src="{{#if r.sender.image}} {{r.sender.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
     </div>
   </div>
   <div class="card mx-auto border-0 mb-" style="width: 80%;">

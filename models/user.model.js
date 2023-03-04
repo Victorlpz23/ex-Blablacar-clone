@@ -54,6 +54,8 @@ const userSchema = new Schema ({
   { timestamps: true }
 );
 
+
+// Virtual populate to received Ratings
 userSchema.virtual('receivedRatings', {
   ref: 'Rating',
   localField: '_id',
@@ -61,6 +63,7 @@ userSchema.virtual('receivedRatings', {
   justOne: false
 });
 
+// Virtual populate to given Ratings
 userSchema.virtual('givenRatings', {
   ref: 'Rating',
   localField: '_id',
