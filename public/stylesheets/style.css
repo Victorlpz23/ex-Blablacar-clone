@@ -127,3 +127,17 @@ body {
     border: 2px solid rgb(5, 71, 82);
 
 }
+
+/* input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+} */
+
+.svg {
+  margin-right: 10px;
+}
+
+.kirk-icon {
+    margin-left: 10px;
+}
