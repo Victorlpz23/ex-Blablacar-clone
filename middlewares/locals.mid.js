@@ -10,3 +10,10 @@ module.exports.query = (req, res, next) => {
   res.locals.query = req.query
   next()
 };
+
+
+// Exports current path to the profile and ratings
+module.exports.currentPath = (req, res, next) => {
+  res.locals.currentPath = req.path
+  next()
+};

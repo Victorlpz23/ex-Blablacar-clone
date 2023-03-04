@@ -27,4 +27,14 @@ hbs.registerHelper('isTripComplete', (trip, options) => {
 // Method to calculate the average of ratings
 hbs.registerHelper('ratingAverage', (receivedRatings) => {
   return Math.round(receivedRatings.map(x => x = x.rating).reduce((a, b) => a + b, 0) / receivedRatings.length);
-})
+});
+
+
+// Method to active current path in hbs
+hbs.registerHelper("pathActive", (currentPath, desiredPath, options) => {
+  if (currentPath === desiredPath) {
+    return options.fn()
+  } else {
+    return options.inverse()
+  }
+});

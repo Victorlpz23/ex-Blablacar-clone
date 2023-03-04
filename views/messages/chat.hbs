@@ -15,9 +15,7 @@
               <img class="rounded-circle mt-2" src="{{#if message.from.image}} {{message.from.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
             </div>
           </div>
-          <div >
-            <textarea class="badge bg-secondary fs-5 text-wrap" style="width: 12rem; height: 2rem;" rows="10">{{message.message}}</textarea>
-          </div>
+          <p class="badge bg-secondary fs-5 text-wrap w-75">{{message.message}}</p>
         </div>
         {{/each}}
 
