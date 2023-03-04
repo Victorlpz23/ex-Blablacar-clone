@@ -187,3 +187,8 @@ module.exports.all = (req, res,next) => {
   })
   .catch(next);
 }
+
+
+module.exports.finder = (req, res, next) => {
+  res.render('trips/finder')
+}

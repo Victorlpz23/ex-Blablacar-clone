@@ -19,6 +19,7 @@ router.get('/trips', tripsController.list);
 router.get('/trips/new', secure.isAuthenticated, tripsController.create);
 router.post('/trips/new', secure.isAuthenticated, tripsController.doCreate);
 router.get('/trips/all', secure.isAuthenticated, secure.checkRole('admin'), tripsController.all);
+router.get('/trips/finder', secure.isAuthenticated, tripsController.finder);
 router.get('/trips/:id', secure.isAuthenticated, tripsController.detail);
 router.get('/trips/:id/edit', secure.isAuthenticated, tripsController.update);
 router.post('/trips/:id', secure.isAuthenticated, tripsController.doUpdate);
