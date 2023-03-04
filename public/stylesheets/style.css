@@ -141,3 +141,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .homeSeats {
     margin-left: 10px;
 }
+
+.lens {
+  padding-right: 0;
+}
+
+.icon {
+  width: 41px;
+}
