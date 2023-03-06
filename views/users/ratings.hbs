@@ -6,7 +6,11 @@
 
 
 <div class="card mx-auto border-0 mb-4" style="width: 80%;">
+  {{#if currentUser.receivedRatings}}
   <h1 class="ratings">{{ratingAverage currentUser.receivedRatings}}/5</h1>
+  {{else}}
+  <h1 class="fst-italic">Not ratings yet</h1>
+  {{/if}}
   <small class="mb-3 text-secondary">
     {{currentUser.receivedRatings.length}} Ratings
   </small>

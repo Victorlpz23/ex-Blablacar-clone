@@ -111,6 +111,7 @@ module.exports.doUpdate = (req, res, next) => {
 
 // User profile rides
 module.exports.rides = (req, res, next) => {
+  
   Trip.find()
     .populate({
     path: 'user',

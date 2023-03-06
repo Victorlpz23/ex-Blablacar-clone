@@ -39,7 +39,11 @@
           <h5>{{trip.user.name}}</h5>
           <div class="d-flex flex-directon-row">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl Jvfzv" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.61622 8.08952L2.6818 9.00945C2.02966 9.11055 1.76941 9.9493 2.24025 10.4325L6.52493 14.8294L5.5266 21.0238C5.41689 21.7045 6.09825 22.2229 6.68258 21.9032L12 18.9948L17.3174 21.9032C17.9018 22.2229 18.5831 21.7045 18.4734 21.0238L17.4751 14.8294L21.7597 10.4325C22.2306 9.9493 21.9703 9.11055 21.3182 9.00945L15.3838 8.08952L12.7144 2.46367C12.4211 1.84544 11.5789 1.84544 11.2856 2.46367L8.61622 8.08952Z" fill="#708C91"></path></svg>
+            {{#if trip.user.receivedRatings}}
             <h6>{{ratingAverage trip.user.receivedRatings}}</h6>
+            {{else}}
+            <small class="fst-italic">Not ratings yet</small>
+            {{/if}}
           </div>
         </div>
       </div>
