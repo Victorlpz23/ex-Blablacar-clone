@@ -115,10 +115,11 @@ module.exports.rides = (req, res, next) => {
     .populate({
     path: 'user',
       populate: {
-        path: 'receivedRatings'}
+        path: 'receivedRatings'},
   })
     .then((trips) => {
-      res.render('users/rides', { trips })
+      console.log(trips[0].user)
+      res.render('users/rides', { trips, user: req.user })
     })
     .catch(next)
 };

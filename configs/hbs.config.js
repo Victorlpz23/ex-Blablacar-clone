@@ -8,6 +8,7 @@ hbs.registerPartials(`${__dirname}/../views/partials`);
 
 // Method to know if the trip is owned by the creator 
 hbs.registerHelper('isOwnedBy', (trip, user, options) => {
+  console.log(`This is the trip ${trip?.user?.id.toString() === user?.id.toString()}`)
   if (trip?.user?.id == user?.id) {
     return options.fn();
   } else {
@@ -38,3 +39,15 @@ hbs.registerHelper("pathActive", (currentPath, desiredPath, options) => {
     return options.inverse()
   }
 });
+
+// Method to know if the trip is not owned by the creator 
+hbs.registerHelper('isOwnedNotBy', (trip, user, options) => {
+  if (trip?.user?.id != user?.id) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
+
+
+
