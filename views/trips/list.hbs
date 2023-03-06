@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center flex-column">
+<div class="d-flex align-items-center flex-column pt-4">
   {{#each trips as |trip|}}
   <a href="/trips/{{trip.id}}" class="nav-link card shadow p-1 mb-2 rounded-4 {{#isTripComplete trip}}disabled bg-body-secondary{{/isTripComplete}}" style="width: 90%;">
     <div class="card-body">

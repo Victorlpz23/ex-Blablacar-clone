@@ -14,7 +14,7 @@ module.exports.list = (req, res, next) => {
   const { latFrom, lngFrom, latTo, lngTo, seats, date } = req.query;
   const criterial = {};
 
-  criterial.seats = seats;
+  criterial.seats = {$gte:seats};
   criterial.date = date;
   const fromNear = {
     $near: {
