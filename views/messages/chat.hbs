@@ -6,16 +6,27 @@
       <div class="card-body">
 
         {{#each messages as | message |}}
-        <div class="mb-3 d-flex align-items-center mx-auto flex-column mb-5">
-          <div class="d-flex flex-row justify-content-evenly mr-2"  style="width: 100%;">
-            <div class="mt-4 mr-2">
-              {{message.from.name}}
-            </div>
+        <div class="d-flex {{#isOwnedMessage message.from ../currentUser}} align-items-end {{else}} align-items-start {{/isOwnedMessage}}  mx-auto flex-column">
+          <div class="d-flex flex-row justify-content-start mr-2"  style="width: 100%;">
             <div>
-              <img class="rounded-circle mt-2" src="{{#if message.from.image}} {{message.from.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
+              {{#isOwnedMessage message.from ../currentUser}}
+              {{else}}
+              <img class="rounded-circle mt-2 me-3" src="{{#if message.from.image}} {{message.from.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
+              {{/isOwnedMessage}}
+            </div>
+            <div class="mt-4">
+              {{#isOwnedMessage message.from ../currentUser}} 
+              {{else}} 
+              <h1>{{message.from.name}}</h1> 
+              {{/isOwnedMessage}}
             </div>
           </div>
-          <p class="badge bg-secondary fs-5 text-wrap w-75">{{message.message}}</p>
+          <p class="{{#isOwnedMessage message.from ../currentUser}} 
+          badge bg-primary fs-5 text-wrap w-75 
+          {{else}} 
+          badge bg-secondary fs-5 text-wrap w-75 
+          {{/isOwnedMessage}}">
+          {{message.message}}</p>
         </div>
         {{/each}}
 

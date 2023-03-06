@@ -49,5 +49,12 @@ hbs.registerHelper('isOwnedNotBy', (trip, user, options) => {
   }
 });
 
-
+// Method to know if the message is owned by the creator 
+hbs.registerHelper('isOwnedMessage', (from, user, options) => {
+  if (from?.id == user?.id) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
 
