@@ -1,16 +1,16 @@
-<h1>Check you trip information</h1>
+<h1>Check details and book!</h1>
 
 <div class="card border-0" style="width: 100%;">
   <ul class="list-group list-group-flush">
+    <li class="list-group-item border-0">{{trip.date}} -- {{trip.departureTime}}</li>
     <li class="list-group-item border-0">{{trip.from}}</li>
     <li class="list-group-item">{{trip.to}}</li>
-    <li class="list-group-item">{{trip.departureTime}}</li>
-    <li class="list-group-item border-bottom border-top border-5">Price: {{trip.price}}€</li>
+    <li class="list-group-item  border-top border-5">Total Price: {{trip.price}}.00€</li>
   </ul>
 </div>
 
 
 
 <form action="/trips/{{trip.id}}/book" method="POST">
-  <button type="submit" class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal">Pay {{trip.price}}€</button>
+  <button type="submit" class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal">Pay {{trip.price}}.00€</button>
 </form>
