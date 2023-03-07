@@ -3,12 +3,13 @@
 function initGooglePlaces() {
   console.log('Google places script loaded')
   initSearchBar()
-  initGMap()
+  initGMapFrom()
+  initGMapTo()
 }
 
-// Initialize Google Map
-function initGMap() {
-  const mapContainer = document.querySelector('.g-map');
+// Initialize Google MapFrom
+function initGMapFrom() {
+  const mapContainer = document.querySelector('.g-mapFrom');
   if (mapContainer) {
   const latFrom = document.getElementById('latFrom')
   const valueLatFrom = latFrom.getAttribute("value")
@@ -19,6 +20,34 @@ function initGMap() {
   console.log(valueLatFrom)
     if (valueLatFrom && valueLngFrom) {
       center = { lat: +valueLatFrom, lng: +valueLngFrom}
+      zoomValue = 12
+    } else {
+      center = { lat: 40.4167754, lng: -3.7037902 }
+    }
+    const map = new google.maps.Map(mapContainer, {
+      zoom: zoomValue,
+      center: center,
+    });
+    const marker = new google.maps.Marker({
+      position : center,
+      map: map,
+    });
+  } 
+}
+
+// Initialize Google MapFrom
+function initGMapTo() {
+  const mapContainer = document.querySelector('.g-mapTo');
+  if (mapContainer) {
+  const latTo = document.getElementById('latTo')
+  const valueLatTo = latTo.getAttribute("value")
+  const lngTo = document.getElementById('lngTo')
+  const valueLngTo = lngTo.getAttribute("value")
+  let center 
+  let zoomValue = 4
+  console.log(valueLatTo)
+    if (valueLatTo && valueLngTo) {
+      center = { lat: +valueLatTo, lng: +valueLngTo}
       zoomValue = 12
     } else {
       center = { lat: 40.4167754, lng: -3.7037902 }
@@ -54,7 +83,8 @@ function initSearchBar() {
 
       document.querySelector(`[name="lat${destination}"]`).value = lat;
       document.querySelector(`[name="lng${destination}"]`).value = lng;
-      initGMap()
+      initGMapFrom()
+      initGMapTo()
     });
     })
   }

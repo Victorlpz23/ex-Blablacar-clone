@@ -23,7 +23,7 @@
 
               <div class="row my-3">
                 <div class="col-12">
-                  <div class="g-map"></div>
+                  <div class="g-mapFrom"></div>
                 </div>
               </div>
               
@@ -34,8 +34,14 @@
                     placeholder="To">
                     {{#if errors.to}}<div class="invalid-feedback">{{errors.to}}</div>{{/if}}
               </div>
-              <input type="hidden" name="latTo" value="{{trip.latTo}}">
-              <input type="hidden" name="lngTo" value="{{trip.lngTo}}">
+              <input type="hidden" name="latTo" id="latTo" value="{{trip.latTo}}">
+              <input type="hidden" name="lngTo" id="lngTo" value="{{trip.lngTo}}">
+
+               <div class="row my-3">
+                <div class="col-12">
+                  <div class="g-mapTo"></div>
+                </div>
+              </div>
 
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i></span>

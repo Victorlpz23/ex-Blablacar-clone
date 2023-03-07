@@ -150,7 +150,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 41px;
 }
 
-.g-map {
+.g-mapFrom {
+  height: 200px;
+  width: 100%;
+}
+
+.g-mapTo {
   height: 200px;
   width: 100%;
 }
