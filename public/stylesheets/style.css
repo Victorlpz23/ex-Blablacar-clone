@@ -149,3 +149,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .icon {
   width: 41px;
 }
+
+.g-map {
+  height: 200px;
+  width: 100%;
+}

@@ -18,8 +18,15 @@
                     placeholder="From">
                     {{#if errors.from}}<div class="invalid-feedback">{{errors.from}}</div>{{/if}}
               </div>
-                <input type="hidden" name="latFrom" value="{{trip.latFrom}}">
-                <input type="hidden" name="lngFrom" value="{{trip.lngFrom}}">
+                <input type="hidden" name="latFrom" id="latFrom" value="{{trip.latFrom}}">
+                <input type="hidden" name="lngFrom" id="lngFrom" value="{{trip.lngFrom}}">
+
+              <div class="row my-3">
+                <div class="col-12">
+                  <div class="g-map"></div>
+                </div>
+              </div>
+              
 
               <div class="input-group mb-2">
                   <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
