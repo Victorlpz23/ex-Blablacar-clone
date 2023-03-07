@@ -28,9 +28,28 @@ function initGMapFrom() {
       zoom: zoomValue,
       center: center,
     });
+
+    const image = document.getElementById('g-imageFrom')
+    urlImage = image.getAttribute("value")
+    
+    const imageMarker = {
+      url: image.getAttribute("value"), // url
+      scaledSize: new google.maps.Size(50, 50), // scaled size
+      anchor: new google.maps.Point(25, 25) // anchor
+    }
+
+    const myoverlay = new google.maps.OverlayView();
+    myoverlay.draw = function () {
+        this.getPanes().markerLayer.id = 'g-imageFrom';
+    };
+    myoverlay.setMap(map);
+  
+
     const marker = new google.maps.Marker({
       position : center,
       map: map,
+      icon: imageMarker,
+      optimized: false
     });
   } 
 }
@@ -56,9 +75,29 @@ function initGMapTo() {
       zoom: zoomValue,
       center: center,
     });
+
+    const image = document.getElementById('g-imageTo')
+    urlImage = image.getAttribute("value")
+    
+    const imageMarker = {
+      url: image.getAttribute("value"), // url
+      scaledSize: new google.maps.Size(50, 50), // scaled size
+      anchor: new google.maps.Point(25, 25) // anchor
+    }
+
+    const myoverlay = new google.maps.OverlayView();
+    myoverlay.draw = function () {
+        this.getPanes().markerLayer.id = 'g-imageTo';
+    };
+    myoverlay.setMap(map);
+  
+
     const marker = new google.maps.Marker({
       position : center,
       map: map,
+      icon: imageMarker,
+      optimized: false
+
     });
   } 
 }

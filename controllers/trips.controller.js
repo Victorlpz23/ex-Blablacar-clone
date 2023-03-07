@@ -52,10 +52,14 @@ criterial.locationFrom = fromNear
         }
       })
     })
-    .then(trips => {
-      res.render('trips/list', { trips })
-    })
-    .catch(next)
+      .then(trips => {
+        if(trips.length === 0) {
+          console.log(req.query)
+          res.render('trips/noTrips', { query: req.query })
+         } else {
+          res.render('trips/list', { trips })
+         }
+      }).catch(next)
 }
 
 // Detail of trips

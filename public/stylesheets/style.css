@@ -159,3 +159,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 200px;
   width: 100%;
 }
+
+#g-imageFrom img {
+  border-radius: 100px;
+  border: 2px solid rgba(255,255,255, 0.1);
+}
+
+#g-imageTo img {
+  border-radius: 100px;
+  border: 2px solid rgba(255,255,255, 0.1);
+}
