@@ -30,7 +30,6 @@ module.exports.doCreate = (req, res, next) => {
     from: req.user.id
   })
   .then(() => {
-    console.log(req.user.adquiredChats.map((x) => x = x.id))
     if (req.user.adquiredChats.map((x) => x = x.id).includes(req.params.id)){
     } else {
       req.user.adquiredChats.push(req.params.id)
