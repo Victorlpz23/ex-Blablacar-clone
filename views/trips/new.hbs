@@ -1,81 +1,85 @@
 {{#if errors}}
-  <div class="alert alert-danger">
-    review form data
-  </div>
+<div class="alert alert-danger">
+  review form data
+</div>
 {{/if}}
 
 <div class="row mx-auto justify-content-center pt-25" style="width: 100%;">
   <div class="col-12 col-md-4 row justify-content-center">
-     <h1 class="fs-25 mt-25">Create a New Trip</h1>
+    <h1 class="fs-25 mt-25">Create a New Trip</h1>
     <div class="card border-0">
       <div class="card-body">
         <form action="/trips/new" method="POST">
           <div class="mb-3">
 
             <div class="input-group mb-2">
-                  <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
-                  <input type="from" value="{{trip.from}}" name="from" class="form-control g-places-finder bg-body-secondary {{#if errors.from}}is-invalid{{/if}}"
-                    placeholder="From">
-                    {{#if errors.from}}<div class="invalid-feedback">{{errors.from}}</div>{{/if}}
-              </div>
-                <input type="hidden" name="latFrom" id="latFrom" value="{{trip.latFrom}}">
-                <input type="hidden" name="lngFrom" id="lngFrom" value="{{trip.lngFrom}}">
-                <input type="hidden" name="g-imageFrom" id="g-imageFrom" value="{{currentUser.image}}">
+              <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
+              <input type="from" value="{{trip.from}}" name="from"
+                class="form-control g-places-finder bg-body-secondary {{#if errors.from}}is-invalid{{/if}}"
+                placeholder="From">
+              {{#if errors.from}}<div class="invalid-feedback">{{errors.from}}</div>{{/if}}
+            </div>
+            <input type="hidden" name="latFrom" id="latFrom" value="{{trip.latFrom}}">
+            <input type="hidden" name="lngFrom" id="lngFrom" value="{{trip.lngFrom}}">
+            <input type="hidden" name="g-imageFrom" id="g-imageFrom" value="{{currentUser.image}}">
 
-              <div class="row my-3">
-                <div class="col-12">
-                  <div class="g-mapFrom"></div>
-                </div>
+            <div class="row my-3">
+              <div class="col-12">
+                <div class="g-mapFrom"></div>
               </div>
-              
+            </div>
 
-              <div class="input-group mb-2">
-                  <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
-                  <input type="to" value="{{trip.to}}" name="to" class="form-control g-places-finder bg-body-secondary {{#if errors.to}}is-invalid{{/if}}"
-                    placeholder="To">
-                    {{#if errors.to}}<div class="invalid-feedback">{{errors.to}}</div>{{/if}}
-              </div>
-              <input type="hidden" name="latTo" id="latTo" value="{{trip.latTo}}">
-              <input type="hidden" name="lngTo" id="lngTo" value="{{trip.lngTo}}">
-              <input type="hidden" name="g-imageTo" id="g-imageTo" value="{{currentUser.image}}">
 
-               <div class="row my-3">
-                <div class="col-12">
-                  <div class="g-mapTo"></div>
-                </div>
-              </div>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i></span>
+              <input type="to" value="{{trip.to}}" name="to"
+                class="form-control g-places-finder bg-body-secondary {{#if errors.to}}is-invalid{{/if}}"
+                placeholder="To">
+              {{#if errors.to}}<div class="invalid-feedback">{{errors.to}}</div>{{/if}}
+            </div>
+            <input type="hidden" name="latTo" id="latTo" value="{{trip.latTo}}">
+            <input type="hidden" name="lngTo" id="lngTo" value="{{trip.lngTo}}">
+            <input type="hidden" name="g-imageTo" id="g-imageTo" value="{{currentUser.image}}">
 
-              <div class="input-group mb-2">
-                  <span class="input-group-text"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i></span>
-                  <input type="time" value="{{trip.departureTime}}" name="departureTime" class="form-control bg-body-secondary {{#if errors.departureTime}}is-invalid{{/if}}"
-                    placeholder="Departure Time">
-                    {{#if errors.departureTime}}<div class="invalid-feedback">{{errors.departureTime}}</div>{{/if}}
+            <div class="row my-3">
+              <div class="col-12">
+                <div class="g-mapTo"></div>
               </div>
-              <div class="input-group mb-2">
-                  <span class="input-group-text"><i class="fa fa-money fa-fw" aria-hidden="true"></i></span>
-                  <input type="number" value="{{trip.price}}" name="price" class="form-control bg-body-secondary {{#if errors.price}}is-invalid{{/if}}"
-                    placeholder="Price">
-                    {{#if errors.price}}<div class="invalid-feedback">{{errors.price}}</div>{{/if}}
-              </div>
-              <div class="input-group mb-2">
-                  <span class="input-group-text"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
-                  <input type="date" value="{{trip.date}}" name="date" class="form-control bg-body-secondary{{#if errors.date}}is-invalid{{/if}}"
-                    placeholder="Date">
-                    {{#if errors.date}}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
-              </div>
-              <div class="input-group mb-2">
-                  <span class="input-group-text"><i class="fa fa-car fa-fw" aria-hidden="true"></i></span>
-                  <input type="number" value="{{trip.seats}}" name="seats" class="form-control bg-body-secondary {{#if errors.seats}}is-invalid{{/if}}"
-                    placeholder="Seats">
-                    {{#if errors.seats}}<div class="invalid-feedback">{{errors.seats}}</div>{{/if}}
-              </div>
-              <div class="input-group mb-2">
-                  <span class="input-group-text"><i class="fa fa-commenting fa-fw" aria-hidden="true"></i></span>
-                  <input type="text" value="{{trip.comments}}" name="comments" class="form-control bg-body-secondary {{#if errors.comments}}is-invalid{{/if}}"
-                    placeholder="Comments">
-                    {{#if errors.comments}}<div class="invalid-feedback">{{errors.comments}}</div>{{/if}}
-              </div>
-                <button type="submit" class="login btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal row justify-content-center">Create</button>
+            </div>
+
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i></span>
+              <input type="time" value="{{trip.departureTime}}" name="departureTime"
+                class="form-control bg-body-secondary {{#if errors.departureTime}}is-invalid{{/if}}"
+                placeholder="Departure Time">
+              {{#if errors.departureTime}}<div class="invalid-feedback">{{errors.departureTime}}</div>{{/if}}
+            </div>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="fa fa-money fa-fw" aria-hidden="true"></i></span>
+              <input type="number" value="{{trip.price}}" name="price"
+                class="form-control bg-body-secondary {{#if errors.price}}is-invalid{{/if}}" placeholder="Price">
+              {{#if errors.price}}<div class="invalid-feedback">{{errors.price}}</div>{{/if}}
+            </div>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
+              <input type="date" value="{{trip.date}}" name="date"
+                class="form-control bg-body-secondary{{#if errors.date}}is-invalid{{/if}}" placeholder="Date">
+              {{#if errors.date}}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
+            </div>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="fa fa-car fa-fw" aria-hidden="true"></i></span>
+              <input type="number" value="{{trip.seats}}" name="seats"
+                class="form-control bg-body-secondary {{#if errors.seats}}is-invalid{{/if}}" placeholder="Seats">
+              {{#if errors.seats}}<div class="invalid-feedback">{{errors.seats}}</div>{{/if}}
+            </div>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="fa fa-commenting fa-fw" aria-hidden="true"></i></span>
+              <input type="text" value="{{trip.comments}}" name="comments"
+                class="form-control bg-body-secondary {{#if errors.comments}}is-invalid{{/if}}" placeholder="Comments">
+              {{#if errors.comments}}<div class="invalid-feedback">{{errors.comments}}</div>{{/if}}
+            </div>
+            <button type="submit"
+              class="login btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal row justify-content-center">Create</button>
         </form>
       </div>
     </div>

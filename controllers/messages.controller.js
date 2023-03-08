@@ -29,25 +29,25 @@ module.exports.doCreate = (req, res, next) => {
     to: req.params.id,
     from: req.user.id
   })
-  .then(() => {
-    if (req.user.adquiredChats.map((x) => x = x.id).includes(req.params.id)){
-    } else {
-      req.user.adquiredChats.push(req.params.id)
-      User.findByIdAndUpdate(req.user.id, req.user)
-      .then(() => console.log('updated'))
-      .catch(next)
-      User.findById(req.params.id)
-      .then((userTo) => {
-        userTo.adquiredChats.push(req.user.id)
-        User.findByIdAndUpdate(req.params.id, userTo)
+    .then(() => {
+      if (req.user.adquiredChats.map((x) => x = x.id).includes(req.params.id)) {
+      } else {
+        req.user.adquiredChats.push(req.params.id)
+        User.findByIdAndUpdate(req.user.id, req.user)
           .then(() => console.log('updated'))
           .catch(next)
-      })
-      .catch(next)
-    }
-    res.redirect(`/users/${req.params.id}/chat`)
-  })
-  .catch(next)
+        User.findById(req.params.id)
+          .then((userTo) => {
+            userTo.adquiredChats.push(req.user.id)
+            User.findByIdAndUpdate(req.params.id, userTo)
+              .then(() => console.log('updated'))
+              .catch(next)
+          })
+          .catch(next)
+      }
+      res.redirect(`/users/${req.params.id}/chat`)
+    })
+    .catch(next)
 }
 
 // Rendering the inbox page for user

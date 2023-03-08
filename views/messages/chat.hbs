@@ -1,23 +1,25 @@
-
 <div class="row mx-auto justify-content-center pt-25" style="width: 100%;">
   <div class="col-12 col-md-4 row justify-content-center">
-     <h1 class="fs-25 mt-25">Chat</h1>
+    <h1 class="fs-25 mt-25">Chat</h1>
     <div class="card border-0">
       <div class="card-body">
 
         {{#each messages as | message |}}
-        <div class="d-flex {{#isOwnedMessage message.from ../currentUser}} align-items-end {{else}} align-items-start {{/isOwnedMessage}}  mx-auto flex-column">
-          <div class="d-flex flex-row justify-content-start mr-2"  style="width: 100%;">
+        <div
+          class="d-flex {{#isOwnedMessage message.from ../currentUser}} align-items-end {{else}} align-items-start {{/isOwnedMessage}}  mx-auto flex-column">
+          <div class="d-flex flex-row justify-content-start mr-2" style="width: 100%;">
             <div>
               {{#isOwnedMessage message.from ../currentUser}}
               {{else}}
-              <img class="rounded-circle mt-2 me-3" src="{{#if message.from.image}} {{message.from.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}" alt="profile" width="60px" height="60px">
+              <img class="rounded-circle mt-2 me-3"
+                src="{{#if message.from.image}} {{message.from.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}"
+                alt="profile" width="60px" height="60px">
               {{/isOwnedMessage}}
             </div>
             <div class="mt-4">
-              {{#isOwnedMessage message.from ../currentUser}} 
-              {{else}} 
-              <h1>{{message.from.name}}</h1> 
+              {{#isOwnedMessage message.from ../currentUser}}
+              {{else}}
+              <h1>{{message.from.name}}</h1>
               {{/isOwnedMessage}}
             </div>
           </div>
@@ -26,17 +28,19 @@
           {{else}} 
           badge bg-secondary fs-5 text-wrap w-75 
           {{/isOwnedMessage}}">
-          {{message.message}}</p>
+            {{message.message}}</p>
         </div>
         {{/each}}
 
         <form action="/users/{{userId}}/chat" method="POST">
           <div class="mb-5">
-              <div class="input-group fixed-bottom">
-                  <span class="input-group-text"><i class="fa fa-commenting fa-fw" aria-hidden="true"></i></span>
-                  <textarea type="text" name="message" rows="1" class="form-control bg-body-secondary" value="{{query.search}}" placeholder="Your message" ></textarea>
-                  <button type="submit" class="btn btn-outline-secondary"><i class="fa fa-paper-plane fa-fw" aria-hidden="true"></i></button>
-              </div>
+            <div class="input-group fixed-bottom">
+              <span class="input-group-text"><i class="fa fa-commenting fa-fw" aria-hidden="true"></i></span>
+              <textarea type="text" name="message" rows="1" class="form-control bg-body-secondary"
+                value="{{query.search}}" placeholder="Your message"></textarea>
+              <button type="submit" class="btn btn-outline-secondary"><i class="fa fa-paper-plane fa-fw"
+                  aria-hidden="true"></i></button>
+            </div>
         </form>
       </div>
     </div>

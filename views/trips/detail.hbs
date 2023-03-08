@@ -22,22 +22,12 @@
 <a class="btn btn-primary" href="{{../trip.id}}/edit">Edit</a>
 
 <form action="/trips/{{../trip.id}}/delete" method="POST">
-<button class="btn btn-danger" type="submit">Delete</button>
+  <button class="btn btn-danger" type="submit">Delete</button>
 </form>
 {{/isOwnedBy}}
 
-<a
-    class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal"
-    href="/trips/{{trip.id}}/book"
-  >Continue</a>
+<a class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal"
+  href="/trips/{{trip.id}}/book">Continue</a>
 
-  <a
-    class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal"
-    href="/users/{{trip.user.id}}/chat"
-  >Chat</a>
-
-
-
-
-
-
+<a class="publish btn btn-primary rounded-pill text-white mb-5 border-0 fw-normal"
+  href="/users/{{trip.user.id}}/chat">Chat</a>
