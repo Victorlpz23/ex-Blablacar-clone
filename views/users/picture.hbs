@@ -3,7 +3,7 @@
     <h1 class="fs-25 mt-25">Edit Profile Picture</h1>
     <div class="card border-0">
       <div class="card-body">
-        <form action="/profile/{{currentUser.id}}" method="POST" enctype="multipart/form-data">
+        <form action="/profile/image/{{currentUser.id}}" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="image" class="form-label">Profile Image</label>
             <img id="image" class="m-2 rounded-circle" src="{{currentUser.image}}" width="200" height="200" />

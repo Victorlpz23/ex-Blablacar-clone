@@ -39,7 +39,7 @@ router.get('/profile', secure.isAuthenticated, userController.profile);
 router.get('/profile/:id/edit', secure.isAuthenticated, userController.update);
 router.post('/profile/:id', secure.isAuthenticated, userController.doUpdate);
 router.get('/profile/:id/edit/picture', secure.isAuthenticated, userController.picture);
-router.post('/profile/:id', secure.isAuthenticated, storage.single('image'), userController.doPicture);
+router.post('/profile/image/:id', secure.isAuthenticated, storage.single('image'), userController.doPicture);
 router.get('/profile/rides', secure.isAuthenticated, userController.rides);
 router.get('/profile/ratings', secure.isAuthenticated, userController.ratings);
 

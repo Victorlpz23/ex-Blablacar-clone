@@ -111,7 +111,6 @@ module.exports.doUpdate = (req, res, next) => {
 
 // User profile rides
 module.exports.rides = (req, res, next) => {
-  
   Trip.find()
     .populate({
     path: 'user',
@@ -119,7 +118,6 @@ module.exports.rides = (req, res, next) => {
         path: 'receivedRatings'},
   })
     .then((trips) => {
-      console.log(trips[0].user)
       res.render('users/rides', { trips, user: req.user })
     })
     .catch(next)

@@ -42,8 +42,10 @@ hbs.registerHelper("pathActive", (currentPath, desiredPath, options) => {
 
 // Method to know if the trip is not owned by the creator 
 hbs.registerHelper('isOwnedNotBy', (trip, user, options) => {
-  if (trip?.user?.id != user?.id) {
+  if (user.adquiredTrips.map(x => x.user.id).includes(trip.user.id)) {
+    if (trip?.user?.id != user?.id) {
     return options.fn();
+    }
   } else {
     return options.inverse();
   }
