@@ -27,7 +27,11 @@ hbs.registerHelper('isTripComplete', (trip, options) => {
 
 // Method to calculate the average of ratings
 hbs.registerHelper('ratingAverage', (receivedRatings) => {
+  if (receivedRatings.length === 0) {
+    return ("Not ratings yet");
+  } else {
   return Math.round(receivedRatings.map(x => x = x.rating).reduce((a, b) => a + b, 0) / receivedRatings.length);
+  }
 });
 
 

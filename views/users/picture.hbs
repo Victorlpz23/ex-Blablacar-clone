@@ -6,7 +6,7 @@
         <form action="/profile/image/{{currentUser.id}}" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="image" class="form-label">Profile Image</label>
-            <img id="image" class="m-2 rounded-circle" src="{{currentUser.image}}" width="200" height="200" />
+            <img id="image" class="m-2 rounded-circle" src="{{#if currentUser.image}} {{currentUser.image}} {{else}} https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg {{/if}}" width="200" height="200" />
             <input type="file" value="{{currenUser.image}}" name="image" id="image" class="form-control">
           </div>
           <button type="submit"
