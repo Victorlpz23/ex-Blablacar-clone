@@ -1,14 +1,15 @@
-<div class="d-flex align-items-center flex-column pt-4">
-  {{#each trips as |trip|}}
-  <div class="row mx-auto justify-content-center pt-25" style="width: 100%;">
-    <div class="col-12 col-md-4 row justify-content-center">
-      <h1 class="sc-gswNZR sc-jIRcFI sc-hhOBVt kQcYu kHCrWL dUxoqJ ms-4">{{formatDate trip.date}}<br><span
-          class="sc-gswNZR sc-gKPRtg kQcYu itioXH inline-block mt-xl inline-block mt-xl text-secondary">{{../query.from}}
-          -->
-          {{../query.to}}
-        </span></h1>
-      <div>
-      </div>
+<div class="row mx-auto justify-content-center pt-25 pt-3" style="width: 100%;">
+  <div class="col-12 col-md-4 row justify-content-center">
+    <h1 class="sc-gswNZR sc-jIRcFI sc-hhOBVt kQcYu kHCrWL dUxoqJ ms-4">{{formatDate query.date}}<br><span
+        class="sc-gswNZR sc-gKPRtg kQcYu itioXH inline-block mt-xl inline-block mt-xl text-secondary">{{query.from}}
+        -->
+        {{query.to}}
+      </span></h1>
+  </div>
+</div>
+
+      <div class="d-flex align-items-center flex-column pt-4">
+        {{#each trips as |trip|}}
       <a href="/trips/{{trip.id}}"
         class="nav-link card shadow p-1 mb-2 rounded-4 {{#isTripComplete trip}}disabled bg-body-secondary{{/isTripComplete}}"
         style="width: 90%;">
