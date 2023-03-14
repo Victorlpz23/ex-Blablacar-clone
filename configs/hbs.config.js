@@ -73,3 +73,9 @@ hbs.registerHelper('formatDate', (date) => {
   return moment(date, "YYYY-MM-DD").format("ddd, Do MMMM")
 }) 
 
+
+// Method to calculate the arrive Hour 
+hbs.registerHelper('arriveHour', (departureTime) => {
+  return moment(departureTime, 'HH:mm').add(7, 'Hours').format('HH:mm')
+}) 
+

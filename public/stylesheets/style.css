@@ -163,3 +163,13 @@ body {
   border-radius: 100px;
   border: 2px solid rgba(255,255,255, 0.1);
 }
+
+.chat-link-detail {
+  text-decoration: none;
+  fill:rgb(0, 175, 245);
+  color:rgb(0, 175, 245); 
+}
+
+.chat-link-detail-text {
+  color:rgb(0, 175, 245); 
+}

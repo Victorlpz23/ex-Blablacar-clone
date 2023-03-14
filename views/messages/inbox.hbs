@@ -3,7 +3,7 @@
     <h1 class="fs-25 mt-25">Inbox</h1>
   </div>
 </div>
-
+{{#if currentUser.adquiredChats}}
 {{#each currentUser.adquiredChats as | chat | }}
 <a class="text-secondary text-decoration-none" href="users/{{chat.id}}/chat">
   <div class="mb-3 d-flex align-items-center flex-column mb-4 border-top border-bottom">
@@ -27,3 +27,13 @@
   </div>
 </a>
 {{/each}}
+
+{{else}}
+<div class="row mx-auto justify-content-center pt-25 mb-4" style="width: 100%;">
+  <div class="col-12 col-md-4 row justify-content-center">
+    <h1 class="fs-25 mt-25 text-center">Messages</h1>
+    <p class="text-center mt-2 fs-5">There no messages at this momment. Book a trip to contact with other user.</p>
+  </div>
+</div>
+
+{{/if}}
