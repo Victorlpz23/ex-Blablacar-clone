@@ -1,99 +1,109 @@
 <div class="d-flex align-items-center flex-column pt-4">
   {{#each trips as |trip|}}
-  <a href="/trips/{{trip.id}}"
-    class="nav-link card shadow p-1 mb-2 rounded-4 {{#isTripComplete trip}}disabled bg-body-secondary{{/isTripComplete}}"
-    style="width: 90%;">
-    <div class="card-body">
-      <div class="d-flex flex-row">
-        <div>
-          <h6 class="card-subtitle mb-2 text-muted fw-bold fs-5">{{trip.departureTime}}</h6>
-          <p class="card-subtitle mb-2 text-muted fs-6">6h50</p> {{!-- ¡¡¡ We must include the parameter !!! --}}
-          <h6 class="card-subtitle mb-2 text-muted fw-bold fs-5">06:00</h6> {{!-- ¡¡¡ We must include the parameter !!!
-          --}}
-        </div>
-        {{!-- Trip bar picture --}}
-        <div class="travel-icon ms-2 me-2">
-          <div class="travel-icon-circle"></div>
-          <div class="travel-icon-line"></div>
-          <div class="travel-icon-circle"></div>
-        </div>
-        {{!-- From to information --}}
-        <div>
-          <h6 class="card-subtitle text-muted">{{trip.from}}</h6>
-          <div class="mb-1">
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl hgvhyy" width="20px"
-              height="20px" aria-hidden="false">
-              <title>Muy cerca de ti</title>
-              <path fill="#5DD167"
-                d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
-              </path>
-            </svg>
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl lgqMCC" width="20px"
-              height="20px" aria-hidden="true">
-              <path fill="#EDEDED"
-                d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
-              </path>
-            </svg>
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl lgqMCC" width="20px"
-              height="20px" aria-hidden="true">
-              <path fill="#EDEDED"
-                d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
-              </path>
-            </svg>
-          </div>
-
-
-          <h6 class="card-subtitle text-muted mt-3">{{trip.to}}</h6>
-          <div class="mb-1">
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl hgvhyy" width="20px"
-              height="20px" aria-hidden="false">
-              <title>Muy cerca de ti</title>
-              <path fill="#5DD167"
-                d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
-              </path>
-            </svg>
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl lgqMCC" width="20px"
-              height="20px" aria-hidden="true">
-              <path fill="#EDEDED"
-                d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
-              </path>
-            </svg>
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl lgqMCC" width="20px"
-              height="20px" aria-hidden="true">
-              <path fill="#EDEDED"
-                d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
-              </path>
-            </svg>
-          </div>
-
-          {{!-- Price --}}
-        </div>
-        <h6 class="card-subtitle mb-2 text-muted ms-auto fw-bold">{{#isTripComplete trip}} Complete
-          {{else}}{{trip.price}},00€ {{/isTripComplete}}
-        </h6> {{!-- we must include the decimals in parameter --}}
+  <div class="row mx-auto justify-content-center pt-25" style="width: 100%;">
+    <div class="col-12 col-md-4 row justify-content-center">
+      <h1 class="sc-gswNZR sc-jIRcFI sc-hhOBVt kQcYu kHCrWL dUxoqJ ms-4">{{formatDate trip.date}}<br><span
+          class="sc-gswNZR sc-gKPRtg kQcYu itioXH inline-block mt-xl inline-block mt-xl text-secondary">{{../query.from}}
+          -->
+          {{../query.to}}
+        </span></h1>
+      <div>
       </div>
-      <div class="d-flex flex-row mt-4">
-        <img class="rounded-circle me-4" width="48px" height="48px"
-          src="{{#if trip.user.image}} {{trip.user.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}"
-          alt="{{trip.user.name}} image">
-        <div>
-          <h5>{{trip.user.name}}</h5>
-          <div class="d-flex flex-directon-row">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl Jvfzv" width="16"
-              height="16" aria-hidden="true">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M8.61622 8.08952L2.6818 9.00945C2.02966 9.11055 1.76941 9.9493 2.24025 10.4325L6.52493 14.8294L5.5266 21.0238C5.41689 21.7045 6.09825 22.2229 6.68258 21.9032L12 18.9948L17.3174 21.9032C17.9018 22.2229 18.5831 21.7045 18.4734 21.0238L17.4751 14.8294L21.7597 10.4325C22.2306 9.9493 21.9703 9.11055 21.3182 9.00945L15.3838 8.08952L12.7144 2.46367C12.4211 1.84544 11.5789 1.84544 11.2856 2.46367L8.61622 8.08952Z"
-                fill="#708C91"></path>
-            </svg>
-            {{#if trip.user.receivedRatings}}
-            <h6>{{ratingAverage trip.user.receivedRatings}}</h6>
-            {{else}}
-            <small class="fst-italic">Not ratings yet</small>
-            {{/if}}
+      <a href="/trips/{{trip.id}}"
+        class="nav-link card shadow p-1 mb-2 rounded-4 {{#isTripComplete trip}}disabled bg-body-secondary{{/isTripComplete}}"
+        style="width: 90%;">
+        <div class="card-body">
+          <div class="d-flex flex-row">
+            <div>
+              <h6 class="card-subtitle mb-2 text-muted fw-bold fs-5">{{trip.departureTime}}</h6>
+              <p class="card-subtitle mb-2 text-muted fs-6">6h50</p> {{!-- ¡¡¡ We must include the parameter !!! --}}
+              <h6 class="card-subtitle mb-2 text-muted fw-bold fs-5">06:00</h6> {{!-- ¡¡¡ We must include the parameter
+              !!!
+              --}}
+            </div>
+            {{!-- Trip bar picture --}}
+            <div class="travel-icon ms-2 me-2">
+              <div class="travel-icon-circle"></div>
+              <div class="travel-icon-line"></div>
+              <div class="travel-icon-circle"></div>
+            </div>
+            {{!-- From to information --}}
+            <div>
+              <h6 class="card-subtitle text-muted">{{trip.from}}</h6>
+              <div class="mb-1">
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl hgvhyy"
+                  width="20px" height="20px" aria-hidden="false">
+                  <title>Muy cerca de ti</title>
+                  <path fill="#5DD167"
+                    d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
+                  </path>
+                </svg>
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl lgqMCC"
+                  width="20px" height="20px" aria-hidden="true">
+                  <path fill="#EDEDED"
+                    d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
+                  </path>
+                </svg>
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl lgqMCC"
+                  width="20px" height="20px" aria-hidden="true">
+                  <path fill="#EDEDED"
+                    d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
+                  </path>
+                </svg>
+              </div>
+
+
+              <h6 class="card-subtitle text-muted mt-3">{{trip.to}}</h6>
+              <div class="mb-1">
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl hgvhyy"
+                  width="20px" height="20px" aria-hidden="false">
+                  <title>Muy cerca de ti</title>
+                  <path fill="#5DD167"
+                    d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
+                  </path>
+                </svg>
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl lgqMCC"
+                  width="20px" height="20px" aria-hidden="true">
+                  <path fill="#EDEDED"
+                    d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
+                  </path>
+                </svg>
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl lgqMCC"
+                  width="20px" height="20px" aria-hidden="true">
+                  <path fill="#EDEDED"
+                    d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm1.202-14.863a1.568 1.568 0 1 0 0-3.136 1.568 1.568 0 0 0 0 3.136zm.94 1.868h-.005a1.568 1.568 0 0 0-1.563-1.554h-.007c-2.252 0-3.896 1.32-4.288 2.692L5.5 11.051H6.926l.723-2.72 1.166-.825-.874 3.264L6.003 18h1.569l1.83-5.661 1.526 1.269.314 4.392h1.528v-5.02l-1.757-1.756.473-1.767a3.753 3.753 0 0 0 2.853 1.313h.314V9.515a2.51 2.51 0 0 1-2.51-2.51z">
+                  </path>
+                </svg>
+              </div>
+
+              {{!-- Price --}}
+            </div>
+            <h6 class="card-subtitle mb-2 text-muted ms-auto fw-bold">{{#isTripComplete trip}} Complete
+              {{else}}{{trip.price}},00€ {{/isTripComplete}}
+            </h6> {{!-- we must include the decimals in parameter --}}
+          </div>
+          <div class="d-flex flex-row mt-4">
+            <img class="rounded-circle me-4" width="48px" height="48px"
+              src="{{#if trip.user.image}} {{trip.user.image}} {{else}}https://cdn.blablacar.com/kairos/assets/images/default-m-818bf2b20d4b06a052dd..svg{{/if}}"
+              alt="{{trip.user.name}} image">
+            <div>
+              <h5>{{trip.user.name}}</h5>
+              <div class="d-flex flex-directon-row">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ksBlkl Jvfzv" width="16"
+                  height="16" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8.61622 8.08952L2.6818 9.00945C2.02966 9.11055 1.76941 9.9493 2.24025 10.4325L6.52493 14.8294L5.5266 21.0238C5.41689 21.7045 6.09825 22.2229 6.68258 21.9032L12 18.9948L17.3174 21.9032C17.9018 22.2229 18.5831 21.7045 18.4734 21.0238L17.4751 14.8294L21.7597 10.4325C22.2306 9.9493 21.9703 9.11055 21.3182 9.00945L15.3838 8.08952L12.7144 2.46367C12.4211 1.84544 11.5789 1.84544 11.2856 2.46367L8.61622 8.08952Z"
+                    fill="#708C91"></path>
+                </svg>
+                {{#if trip.user.receivedRatings}}
+                <h6>{{ratingAverage trip.user.receivedRatings}}</h6>
+                {{else}}
+                <small class="fst-italic">Not ratings yet</small>
+                {{/if}}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
+      {{/each}}
     </div>
-  </a>
-  {{/each}}
-</div>
