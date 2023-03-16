@@ -1,12 +1,13 @@
-# fly.toml file generated for blablacar on 2023-03-16T08:50:13+01:00
+# fly.toml file generated for ex-blablacar-clone on 2023-03-16T09:24:14+01:00
 
-app = "blablacar"
+app = "ex-blablacar-clone"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "mad"
 processes = []
 
 [env]
+SESSION_SECURE='false'
 
 [experimental]
   auto_rollback = true
